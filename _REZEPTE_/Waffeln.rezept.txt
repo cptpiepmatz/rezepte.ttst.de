@@ -1,0 +1,9 @@
+[Zutaten]
+250;g;Dinkelmehl 630
+125;g;Butter
+4;;Eier
+250;ml;Milch
+3 - 4;EL;Zucker
+
+[Zubereitung]
+Alle Zutaten in eine Rührschüssel geben und gut verrühren. Den Teig dann im Waffeleisen backen.

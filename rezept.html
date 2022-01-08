@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta name="is-recipe" content="true">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Content-Language" content="de">
+    <title>TTST.de Rezepte</title>
+    <!-- custom stylesheets -->
+    <link rel="stylesheet" type="text/css" href="styles/MAIN.css">
+    <!-- favicon stuff -->
+    <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#0d0d0d">
+
+    <!-- check if browser is IE -->
+    <script type="text/javascript" src="js/checkie.js"></script>
+    <script>
+      blockIE();
+    </script>
+
+    <!-- check for dark mode -->
+    <script type="text/javascript" src="js/darkmode.js"></script>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        loadLightSwitch();
+      })
+    </script>
+
+    <!-- jquery CDN Google -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- bootstrap CDN Max -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js" integrity="sha384-feJI7QwhOS+hwpX2zkaeJQjeiwlhOP+SdQDqhgvvo1DsjtiSQByFdThsxO669S2D" crossorigin="anonymous"></script>
+    <!-- beautify CDN Github -->
+    <script src="https://cdn.rawgit.com/beautify-web/js-beautify/v1.8.7/js/lib/beautify.js"></script>
+    <script src="https://cdn.rawgit.com/beautify-web/js-beautify/v1.8.7/js/lib/beautify-css.js"></script>
+    <script src="https://cdn.rawgit.com/beautify-web/js-beautify/v1.8.7/js/lib/beautify-html.js"></script>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  </head>
+  <body>
+    <div id="loader">
+      <img src="logo.png" alt="loaderlogo">
+      <!-- loader icon by loading.io -->
+      <div id="loading" class="lds-facebook"><div></div><div></div><div></div></div>
+      <a href="https://loading.io" target="_blank">Ladesymbol durch Loading.io</a>
+    </div>
+    <div id="headbar">
+      	<i onclick="openNav()" class="fas fa-bars"></i>
+        <div id="logocontainer">
+          <a href="index.html">
+            <img id="headbarlogo" src="logo.png"></img>
+          </a>
+        </div>
+    </div>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+      <p>Rezepte</p>
+      <div id="recipelist">
+      </div>
+
+    </div>
+    <div id="maincontainer">
+      <div id="main">
+        <h1 id="recipetitle"></h1>
+        <img id="resultimg" hidden>
+        <div class="links">
+          <a id="printpdf" target="_blank" hidden><i class="fas fa-print"></i> PDF zum Drucken</a>
+          <a id="inspiredby" hidden><i class="far fa-lightbulb"></i> Inspiriert durch</a>
+        </div>
+        <table id="ingredients">
+        </table>
+        <div class="preparation">
+          <h2>Zubereitung</h2>
+          <div id="prepcontent">
+          </div>
+        </div>
+        <div class="bottombar">
+          <div class="link-container">
+            <a href="mailto:mail@ttst.de">Email an mich</a>
+            <a href="javascript:void(0);" id="light-switch" onclick="switchLight()">Licht aus!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="js/sidebar.js"></script>
+    <script type="text/javascript" src="js/loadrecipe.js"></script>
+  </body>
+</html>

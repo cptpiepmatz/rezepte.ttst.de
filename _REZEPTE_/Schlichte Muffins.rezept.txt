@@ -1,0 +1,13 @@
+[Zutaten]
+3;EL;Zucker
+3;geh. EL;Mehl (Dinkel 630 oder Weizen 405)
+3;EL;Öl
+1;;Ei
+;;etwas Milch/Wasser mit Kohlensäure
+;;Backpulver
+;;Vanillezucker
+
+[Zubereitung]
+Ca. 20 Minuten bei 180°C Unter-/Oberhitze backen
+Zutaten ohne Milch / Wasser verrühren und dann mit etwas Milch / Wasser eine etwas flüssigerere Konsistenz erzeugen
+Das Rezept reicht für ca. <b>sechs</b> Muffins

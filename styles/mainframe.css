@@ -1,0 +1,91 @@
+#maincontainer {
+  background-color: #111;
+  height: calc(100vh - 80px);
+}
+#main {
+  margin-top: 80px;
+  transition: margin-left .5s;
+  padding: 20px;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-bottom: 0px;
+  background-color: white;
+}
+#main h1 {
+  font-size: 2.5rem;
+  max-width: 60vw;
+}
+#main > img {
+  float: right;
+  height: 200px;
+  position: relative;
+  top: -2.5rem;
+  max-width: 100%;
+}
+#main table tr td:first-child {
+  text-align: right;
+}
+#main table tr td:last-child {
+  padding-left: 10px;
+}
+#main table tr.ing_head td {
+  padding-left: 0;
+  text-align: left;
+  font-weight: bold;
+}
+div.links {
+  float: right;
+  padding-right: 10px;
+  position: relative;
+  top: -2.5rem;
+}
+div.links a {
+  display: block;
+  text-align: right;
+}
+div.preparation {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 80px;
+}
+div.preparation div img {
+  max-width: 800px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+}
+div.preparation div p {
+  margin-bottom: 0;
+}
+@media (max-width: 800px) {
+  #main h1 {
+    max-width: 100vw;
+  }
+  #main {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  #main > img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+    position: relative;
+    top: 0;
+  }
+  div.links {
+    top: 0;
+    float: none;
+  }
+  div.preparation {
+    width: 100%;
+  }
+  div.preparation div img {
+    max-width: 100%;
+  }
+}
