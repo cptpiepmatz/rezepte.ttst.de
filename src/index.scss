@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+// Bulma
+@import "../node_modules/bulma/sass/utilities/initial-variables";
+@import "../node_modules/bulma/sass/utilities/functions";
+
+// do custom colors here
+
+@import "../node_modules/bulma/bulma";
+@import "../node_modules/bulma-prefers-dark/bulma-prefers-dark";
