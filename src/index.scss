@@ -4,7 +4,23 @@
 @import "../node_modules/bulma/sass/utilities/initial-variables";
 @import "../node_modules/bulma/sass/utilities/functions";
 
-// do custom colors here
+$primary: #34ac46;
+
+$divider-margin-inner-size: 0;
 
 @import "../node_modules/bulma/bulma";
 @import "../node_modules/bulma-prefers-dark/bulma-prefers-dark";
+@import "~@creativebulma/bulma-divider";
+
+html {
+  overflow-y: auto;
+}
+
+.navMenu {
+  background-color: $grey-lighter;
+}
+@media (prefers-color-scheme: dark) {
+  .navMenu {
+    background-color: $black-bis;
+  }
+}
