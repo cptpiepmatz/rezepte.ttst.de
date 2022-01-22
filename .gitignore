@@ -10,6 +10,7 @@
 
 # production
 /build
+/public/_REZEPTE_
 
 # misc
 .DS_Store
