@@ -1,8 +1,9 @@
 import {Component} from "react";
+import ReactMarkdown from "react-markdown";
+
 import SideCard from "./SideCard";
 import Ingredients from "./Ingredients";
 import RecipeOptions from "../RecipeOptions";
-import ReactMarkdown from "react-markdown";
 
 export default class Recipe extends Component<RecipeOptions> {
   constructor(props: RecipeOptions) {

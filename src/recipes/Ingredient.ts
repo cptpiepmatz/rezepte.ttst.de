@@ -18,8 +18,9 @@ export default class Ingredient {
           break;
         case "string":
           amount = amount.trim();
-          let fractionMatch = amount.match(/(?<dividend>\d+)\/(?<divisor>\d+)/);
-          console.log(fractionMatch);
+          let fractionMatch = amount.match(
+            /(?<dividend>\d+)\/(?<divisor>\d+)/
+          );
           if (fractionMatch && fractionMatch.groups!.divisor) {
             let {dividend, divisor} = fractionMatch.groups!;
             console.log(dividend, divisor);

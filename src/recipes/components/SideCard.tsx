@@ -1,4 +1,5 @@
 import {Component} from "react";
+
 import RecipeOptions from "../RecipeOptions";
 
 export default class SideCard extends Component<RecipeOptions> {

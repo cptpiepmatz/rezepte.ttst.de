@@ -1,4 +1,5 @@
-import {Component, CSSProperties} from "react";
+import {Component} from "react";
+
 import RecipeOptions from "../RecipeOptions";
 
 export default class Ingredients extends Component<RecipeOptions> {
