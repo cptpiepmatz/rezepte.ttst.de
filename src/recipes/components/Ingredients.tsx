@@ -25,7 +25,7 @@ export default class Ingredients extends Component<RecipeOptions> {
         tableRows.push(
           <tr key={`${label}.${ingredient.description}`}>
             <td>
-              {ingredient.amount} {ingredient.unit}
+              {ingredient.amountToString()} {ingredient.unit}
             </td>
             <td className={"pl-2"}>
               {ingredient.description}

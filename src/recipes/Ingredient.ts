@@ -2,21 +2,27 @@ export default class Ingredient {
 
   readonly amount?: number;
   readonly unit?: string;
+  readonly description?: string;
 
   constructor(
     amount: string|number,
     unit: string,
-    readonly description: string
+    description: string
   ) {
+    this.description = description?.trim();
+
     if (amount !== "") {
       switch (typeof amount) {
         case "number":
           this.amount = amount;
           break;
         case "string":
-          let fractionMatch = amount.match(/(?<divident>\d+)\/(?<divisor>\d+)/);
+          amount = amount.trim();
+          let fractionMatch = amount.match(/(?<dividend>\d+)\/(?<divisor>\d+)/);
+          console.log(fractionMatch);
           if (fractionMatch && fractionMatch.groups!.divisor) {
             let {dividend, divisor} = fractionMatch.groups!;
+            console.log(dividend, divisor);
             this.amount = parseInt(dividend) / parseInt(divisor);
             break;
           }
@@ -25,27 +31,23 @@ export default class Ingredient {
       }
     }
 
-    this.unit = unit ? unit : undefined;
+    this.unit = unit?.trim() ? unit.trim() : undefined;
+  }
+
+  amountToString(scale: number = 1): string {
+    if (!this.amount) return "";
+    let outAmount = (this.amount ?? 0) * scale;
+    switch (outAmount) {
+      case 0.5: return "½";
+      case 0.25: return "¼";
+      case 0.75: return "¾";
+      default: return `${outAmount}`;
+    }
   }
 
   toString(scale: number = 1): string {
     let output = "";
-    if (this.amount) {
-      let outAmount = this.amount * scale;
-      switch (outAmount) {
-        case 0.5:
-          output += "½ ";
-          break;
-        case 0.25:
-          output += "¼ ";
-          break;
-        case 0.75:
-          output += "¾ ";
-          break;
-        default:
-          output += outAmount;
-      }
-    }
+    if (this.amount) output += this.amountToString(scale) + " ";
     if (this.unit) output += this.unit + " ";
     return output + this.description;
   }
