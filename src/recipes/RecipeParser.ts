@@ -35,6 +35,8 @@ export default class RecipeParser {
       let section = "_";
       let ingredients: RecipeOptions["ingredients"] = {};
       for (let row of rows) {
+        row = row.trim();
+        if (row.length === 0) continue;
         let rowElems = row.split(";");
         if (rowElems.length < 3) {
           section = row;
