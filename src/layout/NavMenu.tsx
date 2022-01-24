@@ -16,7 +16,7 @@ export default class NavMenu extends Component<any, {recipes: string[]}> {
     queriedRecipe = queriedRecipe ? decodeURI(queriedRecipe) : undefined;
 
     return <>
-      <nav className={"menu navMenu p-3"} style={{height: "100%"}}>
+      <nav className={"menu navMenu p-3 " + this.props.className} style={{height: "100%"}}>
         <p className={"menu-label"}>Rezepte</p>
         <ul className={"menu-list"}>
           {
