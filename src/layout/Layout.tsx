@@ -12,7 +12,7 @@ export default class Layout extends Component {
         <div className={"hero-head"}>
           <TopBar/>
         </div>
-        <div className={"hero-body p-0 is-flex is-align-self-center"} style={{maxWidth: "1920px"}}>
+        <div className={"hero-body p-0 is-flex is-align-self-center"} style={{maxWidth: "1920px", width: "100%"}}>
           <div className={"columns is-align-self-stretch m-0"} style={{width: "100%"}}>
             <div className={"column is-one-quarter p-0"}>
               <Location>
