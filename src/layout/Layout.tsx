@@ -3,7 +3,6 @@ import {Component} from "react";
 import TopBar from "./TopBar";
 import Footer from "./Footer";
 import NavMenu from "./NavMenu";
-import Recipe from "../recipes/components/Recipe";
 
 export default class Layout extends Component {
   render() {
@@ -19,7 +18,7 @@ export default class Layout extends Component {
             </div>
             <div className={"column"}>
               <main className={"container"}>
-                <Recipe {...this.props}/>
+                {this.props.children}
               </main>
             </div>
           </div>
