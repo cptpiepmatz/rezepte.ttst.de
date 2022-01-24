@@ -3,6 +3,7 @@ import {Component} from "react";
 import TopBar from "./TopBar";
 import Footer from "./Footer";
 import NavMenu from "./NavMenu";
+import Location from "../Location";
 
 export default class Layout extends Component {
   render() {
@@ -14,7 +15,9 @@ export default class Layout extends Component {
         <div className={"hero-body p-0 is-flex is-align-self-center"} style={{maxWidth: "1920px"}}>
           <div className={"columns is-align-self-stretch m-0"} style={{width: "100%"}}>
             <div className={"column is-one-quarter p-0"}>
-              <NavMenu/>
+              <Location>
+                <NavMenu/>
+              </Location>
             </div>
             <div className={"column"}>
               <main className={"container"}>
