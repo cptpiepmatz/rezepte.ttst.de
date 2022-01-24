@@ -1,81 +1,35 @@
-import React from "react";
+import React, {Component} from "react";
 
-import RecipeParser from "./recipes/RecipeParser";
 import Layout from "./layout/Layout";
-import {BrowserRouter, Router, useLocation, useParams} from "react-router-dom";
+import RecipeParser from "./recipes/RecipeParser";
+import Recipe from "./recipes/components/Recipe";
+import RecipeData from "./recipes/Recipe";
 
-const content = `
-[Resultatbild]
-Pizza3.jpg
+export default class App extends Component<any, {recipe?: RecipeData}> {
 
-[PDF]
-Pizza.pdf
-
-[Zutaten]
-Boden
-500;g;Dinkelmehl 630
-250;ml;lauwarmes Wasser
-15;g;Kristallsalz
-1;kleine Prise;Zucker
-1;EL;Olivenöl
-Soße
-500;g;passierte Tomaten
-1;kleine Prise; Zucker
-;;Kristallsalz
-;;Pfeffer
-;;Basilikum, gerebelt
-;;Oregano, gerebelt
-
-[Zubereitung]
-Mehl, Kristallsalz und Zucker in eine Rührschüssel geben. 
-Die Hefe mit 150 ml lauwarmen Wasser in einem Shaker auflösen und hinzufügen. 
-Auf diese Art hat man keine Hefeklumpen, die nachher zu dicken Blasen auf dem 
-Boden führen. 
-Die restlichen 100 ml Wasser und das Olivenöl hinzufügen. 
-Den Esslöffel kann man dann gleich zum ersten Verrühren verwenden. 
-Den Teig gut 10 Minuten kräftig durchkneten, dass ein gleichmäßiger Teig 
-entsteht. 
-Die Rührschlüssel mit einem Geschirrtuch abdecken und den Teig 30 Minuten 
-gehen lassen.
-![noch nicht aufgegangener Teig](Pizza1.jpg)
-Die Zeit des Gehenlassens kann man gut für die Soße verwenden. 
-Die passierten Tomaten in eine Schüssel geben und nach Belieben mit
-Kristallsalz, Pfeffer, Zucker, Basilikum und Oregano würzen. 
-Ich empfehle hier eine kräftige Würzung, Boden und Belag nehmen Geschmack auf.
-Den Ofen ggf. schon mal auf 250°C Ober- und Unterhitze vorheizen.
-![aufgegangener Teig](Pizza2.jpg)
-Der Teig wiegt etwa 800 Gramm. 
-Den in vier Teile á ca. 200 Gramm portionieren. 
-Auf einer gut bemehlten Fläche den Teig so groß ausrollen, dass er auf einen 
-einfachen Teller passt. 
-4 EL Soße verteilen:
-![Pizza auf einem Teller](Pizza3.jpg)
-Pizza belegen und mit Käse bestreuen, fertig.
-Die Pizza bei 250°C Ober- und Unterhitze für ca. 10 Minuten in den 
-**vorgeheizten** Backofen schieben.
-
-Da wir selten mit alle Mann Pizza essen, ist der Teig etwas viel. 
-Ich rolle die Pizzen auf die Größe eines flachen Tellers aus, packe sie darauf, 
-verteile die Soße und friere sie dann so ein. 
-Nach 2 – 3 Stunden nehme ich die Pizzen wieder raus, verpacke sie in 
-Gefrierbeutel und stelle sie mit dem Teller wieder in die Truhe. 
-Am nächsten Morgen kann man die Teller wegnehmen, da passiert mit dem Boden 
-nichts mehr.
-Wenn man die Pizza wieder auftaut, muss sie voll aufgetaut sein, sonst geht sie 
-nicht richtig auf. 
-Bei Raumtemperatur dauert es zwei Stunden, im Warmwasserbad nur eine ¾ Stunde. 
-Für das Wasserbad nehme ich ein kleines Backblech, lege die Pizza drauf und 
-lasse das Blech in einer großen Schüssel Wasser schwimmen. Die Pizza nicht im 
-Beutel auftauen, sie klebt dort sonst fest.
-`
-
-export default function App() {
-  let recipe = RecipeParser.parse(content, "Pizza");
-  let queriedRecipe = useLocation().search.match(/recipe=([^&]*)/)?.[1];
-  if (queriedRecipe) {
-
+  render() {
+    return (
+      <Layout>
+        <Recipe {...this.state?.recipe}/>
+      </Layout>
+    );
   }
-  return (
-    <Layout {...recipe}/>
-  );
+
+  componentDidMount() {
+    this.fetchRecipe().then(recipe => this.setState({recipe}));
+  }
+
+  async fetchRecipe(): Promise<RecipeData | undefined> {
+    let queriedRecipe = this.props.search?.match(/recipe=([^&]*)/)?.[1];
+    if (queriedRecipe) {
+      let recipeName = decodeURI(queriedRecipe);
+      let recipeResponse = await fetch(
+        `/_REZEPTE_/${recipeName}.rezept.txt`
+      );
+      if (!recipeResponse.ok) {} // TODO: do stuff if not ok
+      let recipeRaw = await recipeResponse.text();
+      return RecipeParser.parse(recipeRaw, recipeName);
+    }
+    return undefined;
+  }
 }
