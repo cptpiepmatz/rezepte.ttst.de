@@ -14,7 +14,9 @@ export default class Recipe extends Component<RecipeOptions> {
     return <>
       <div className={"columns"}>
         <div className={"column is-two-thirds"}>
-          <p className={"title is-2 has-text-centered"}>Pizza</p>
+          <p className={"title is-2 has-text-centered"}>
+            {this.props.name ?? "???"}
+          </p>
           <div className={"divider"}/>
           <Ingredients {...this.props}/>
         </div>
