@@ -10,12 +10,13 @@ export default class Recipe extends Component<RecipeOptions> {
     super(props);
   }
 
+  // the title may fall back to a zero width space
   render() {
     return <>
       <div className={"columns"}>
         <div className={"column is-two-thirds"}>
           <p className={"title is-2 has-text-centered"}>
-            {this.props.name ?? "???"}
+            {this.props.name ?? "​"}
           </p>
           <div className={"divider"}/>
           <Ingredients {...this.props}/>
