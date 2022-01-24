@@ -5,10 +5,15 @@ const STORAGE_KEY = "recipes";
 
 export default class NavMenu extends Component<any, {recipes: string[]}> {
 
-  constructor(props: any) {
+  constructor(
+    props: any
+  ) {
     super(props);
     let localRecipes = window.localStorage.getItem(STORAGE_KEY) ?? "[]";
-    this.state = {recipes: JSON.parse(localRecipes)};
+    this.state = {
+      recipes: JSON.parse(localRecipes)
+    };
+
   }
 
   render() {
