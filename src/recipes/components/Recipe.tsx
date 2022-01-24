@@ -31,9 +31,7 @@ export default class Recipe extends Component<RecipeOptions> {
             <div className={"columns"}>
               <div className={"column is-10 is-offset-1"}>
                 <div className={"content"}>
-                  <ReactMarkdown>
-                    {this.props.preparation}
-                  </ReactMarkdown>
+                  <ReactMarkdown children={this.props.preparation}/>
                 </div>
               </div>
             </div>
