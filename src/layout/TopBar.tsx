@@ -1,8 +1,8 @@
 import {Component} from "react";
-
-import logo from "../logo.svg";
 import {Link} from "react-router-dom";
+
 import NavMenu from "./NavMenu";
+import logo from "../logo.svg";
 
 export default class TopBar extends Component<any, {hideNav: boolean}> {
 
