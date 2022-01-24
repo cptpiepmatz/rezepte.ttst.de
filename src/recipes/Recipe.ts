@@ -21,7 +21,7 @@ export default class Recipe {
       this.preparation = options.preparation
         .replaceAll(
           /!\[.*\]\((.*)\)/g,
-          `![](_REZEPTE_/img/${this.name}/$1)`
+          (match, file) => `![](${encodeURI(`_REZEPTE_/img/${this.name}/${file}`)})`
         );
     }
   }
