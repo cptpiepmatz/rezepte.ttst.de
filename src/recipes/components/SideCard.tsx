@@ -34,7 +34,7 @@ export default class SideCard extends Component<RecipeOptions> {
         {
           this.props.inspiration &&
           <div className={"card-content p-0"}>
-            <a href={"/"}>
+            <a href={this.props.inspiration} target="_blank">
               <p className={"p-3 has-text-primary"}>💡 Inspiration</p>
             </a>
           </div>
