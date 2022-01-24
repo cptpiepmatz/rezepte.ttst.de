@@ -16,7 +16,7 @@ export default class Layout extends Component {
           <div className={"columns is-align-self-stretch m-0"} style={{width: "100%"}}>
             <div className={"column is-one-quarter p-0"}>
               <Location>
-                <NavMenu/>
+                <NavMenu className={"is-hidden-mobile"}/>
               </Location>
             </div>
             <div className={"column"}>
