@@ -23,15 +23,24 @@ Soße
 ;;Oregano
 
 [Zubereitung]
-Nudeln kochen, abgießen und in eine Auflaufform geben. Gyros in Öl anbraten und danach beiseite stellen.
-<img>Gyros anbraten.jpg
-<img>Gyros beiseite.jpg
-Das Gemüse waschen, klein schneiden und in demselben Öl anbraten, in dem zuvor das Gyros angebraten wurde. Noch etwas mit Salz und Pfeffer würzen.
-<img>Gemüse anbraten.jpg
-Das Gemüse mit Sahne ablöschen und den Schmand einrühren. Nun auch Tomatenmark und Metaxa hinzugeben. Nach Belieben vom Tomatenmark und Metaxa etwas mehr hinzugeben. Mit Salz und Pfeffer, gegebenenfalls mit Paprikapulver und anderen Gewürzen würzen.
-<img>abgelöschte Soße.jpg
+Nudeln kochen, abgießen und in eine Auflaufform geben.
+Gyros in Öl anbraten und danach beiseite stellen.
+![](Gyros anbraten.jpg)
+![](Gyros beiseite.jpg)
+Das Gemüse waschen, klein schneiden und in demselben Öl anbraten, in dem zuvor
+das Gyros angebraten wurde.
+Noch etwas mit Salz und Pfeffer würzen.
+![](Gemüse anbraten.jpg)
+Das Gemüse mit Sahne ablöschen und den Schmand einrühren.
+Nun auch Tomatenmark und Metaxa hinzugeben.
+Nach Belieben vom Tomatenmark und Metaxa etwas mehr hinzugeben.
+Mit Salz und Pfeffer, gegebenenfalls mit Paprikapulver und anderen Gewürzen
+würzen.
+![](abgelöschte Soße.jpg)
 Nun das Gyros in die Soße geben und vermengen.
-<img>Gyros in Soße.jpg
-Das Gemisch nun über die Nudeln in der Auflaufform gießen, Käse drüber streuen und bei 180 °C Umluft für 10 - 15 Minuten in den Ofen schieben. Es soll nur alles nochmal heiß werden und der Käse verlaufen.
-<img>Form fertig.jpg
-<img>Fertig.jpg
+![](Gyros in Soße.jpg)
+Das Gemisch nun über die Nudeln in der Auflaufform gießen, Käse drüber streuen
+und bei 180 °C Umluft für 10 - 15 Minuten in den Ofen schieben.
+Es soll nur alles nochmal heiß werden und der Käse verlaufen.
+![](Form fertig.jpg)
+![](Fertig.jpg)
