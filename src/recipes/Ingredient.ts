@@ -23,7 +23,6 @@ export default class Ingredient {
           );
           if (fractionMatch && fractionMatch.groups!.divisor) {
             let {dividend, divisor} = fractionMatch.groups!;
-            console.log(dividend, divisor);
             this.amount = parseInt(dividend) / parseInt(divisor);
             break;
           }
