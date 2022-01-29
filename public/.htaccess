@@ -1,0 +1,2 @@
+RewriteEngine on
+Redirect 301 http://rezepte.ttst.de https://rezepte.ttst.de
