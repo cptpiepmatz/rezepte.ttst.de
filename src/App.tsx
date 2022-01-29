@@ -4,13 +4,22 @@ import Layout from "./layout/Layout";
 import RecipeParser from "./recipes/RecipeParser";
 import Recipe from "./recipes/components/Recipe";
 import RecipeData from "./recipes/Recipe";
+import Landing from "./Landing";
 
 export default class App extends Component<any, {recipe?: RecipeData}> {
+
+  private readonly queriedRecipe?: string;
+
+  constructor(props: any) {
+    super(props);
+    this.queriedRecipe = this.props.search?.match(/recipe=([^&]*)/)?.[1];
+  }
 
   render() {
     return (
       <Layout>
-        <Recipe {...this.state?.recipe}/>
+        {this.queriedRecipe && <Recipe {...this.state?.recipe}/>}
+        {!this.queriedRecipe && <Landing/>}
       </Layout>
     );
   }
@@ -20,9 +29,8 @@ export default class App extends Component<any, {recipe?: RecipeData}> {
   }
 
   async fetchRecipe(): Promise<RecipeData | undefined> {
-    let queriedRecipe = this.props.search?.match(/recipe=([^&]*)/)?.[1];
-    if (queriedRecipe) {
-      let recipeName = decodeURI(queriedRecipe);
+    if (this.queriedRecipe) {
+      let recipeName = decodeURI(this.queriedRecipe);
       let recipeResponse = await fetch(
         `/_REZEPTE_/${recipeName}.rezept.txt`
       );
