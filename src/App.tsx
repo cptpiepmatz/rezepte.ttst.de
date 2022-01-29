@@ -43,7 +43,12 @@ export default class App extends Component<any, {recipe?: RecipeData, error: num
     if (this.queriedRecipe) {
       let recipeName = decodeURI(this.queriedRecipe);
       let recipeResponse = await fetch(
-        `/_REZEPTE_/${recipeName}.rezept.txt`
+        `/_REZEPTE_/${recipeName}.rezept.txt`,
+        {
+          headers: {
+            "Expires": "0"
+          }
+        }
       );
       if (!recipeResponse.ok) {
         this.setState({error: recipeResponse.status});
