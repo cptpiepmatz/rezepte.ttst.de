@@ -1,0 +1,38 @@
+[Resultatbild]
+Pfannkuchen.jpg
+
+[Inspiration]
+https://www.chefkoch.de/rezepte/2529831396465550/Pfannkuchen-Cr-pe-und-Pancake.html
+
+[PDF]
+Pfannkuchen für Tia.pdf
+
+[Zutaten]
+ohne Gluten und Milch
+1;;Ei
+10;g;Zucker
+100;ml;Mineralwasser mit wenig Kohlensäure
+1/4;Prise;Kristallsalz
+50;g;Mais-Mehl
+;;Öl, zum Braten
+mit Gluten und Milch
+1;;Ei
+8;g;Zucker
+100;ml;Milch
+1/4;Prise;Kristallsalz
+50;g;Dinkel-Mehl 630
+1/4;Msp.;Backpulver
+;;Öl, zum Braten
+
+[Zubereitung]
+Die Zutaten in eine Rührschüssel geben und alles zu einem glatten Teig verrühren.
+Bei der Verwendung von Dinkel-Mehl den Teig für ca. 15 Minuten ruhen lassen,
+da das Mehl noch ausquillt.
+
+Bei Mais-Mehl braucht das nicht, es kann sofort in die Pfanne gegeben werden.
+Dann den Teig in eine auf mittlere Hitze erhitzte, beschichtete Pfanne geben.
+Nach ca. 2 Minuten bilden sich kleine Bläschen, dann den Pfannkuchen einmal
+wenden und von der anderen Seite schön goldbraun ausbacken.
+
+Bei der Verwendung von Wasser ohne Kohlensäure muss das Backpulver verwendet
+werden.

@@ -1,0 +1,35 @@
+[Resultatbild]
+geschnitten.jpg
+
+[Inspiration]
+https://www.chefkoch.de/rezepte/3190361474827085/Dinkelbaguette.html
+
+[PDF]
+Dinkelbaguette.pdf
+
+[Zutaten]
+500;g;Dinkelmehl 630
+15;g;Kristallsalz
+15;g;Zucker
+180;ml;Milch
+1;Würfel;Hefe
+100;ml;Wasser
+
+[Zubereitung]
+Mehl, Kristallsalz, Zucker und Milch in eine Rührschüssel geben.
+Die Hefe mit 100 ml Wasser in einem Shaker auflösen und hinzufügen.
+Den Teig mit einem Esslöffel verrühren und dann 10 Minuten kräftig durchkneten,
+dass ein gleichmäßiger Teig entsteht.
+![](Schuessel1.jpg)
+Die Rührschüssel mit einem Geschirrtuch abdecken und den Teig 30 Minuten gehen
+lassen.
+![](Schuessel2.jpg)
+Nach dem Gehen den Teig nicht mehr stark bearbeiten.
+Er wird nur in drei ungefähr gleich große Teile geschnitten und in Baguetteform
+gebracht.
+![](roh.jpg)
+Den Ofen auf 200 Grad vorheizen (Ober- und Unterhitze) und dann die Brote backen.
+Je nach Ofen variiert die Backzeit zwischen 10 – 20 Minuten.
+Mit dem Klopftest kann man prüfen, ob das Baguette fertig ist:
+klingt der Brotlaib hohl, ist er fertig gebacken.
+![](gebacken.jpg)
