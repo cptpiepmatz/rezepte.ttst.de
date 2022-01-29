@@ -25,4 +25,8 @@ html {
   .navMenu {
     background-color: $black-bis;
   }
+
+  .is-inverted {
+    filter: invert(1);
+  }
 }
