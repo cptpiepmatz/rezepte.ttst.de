@@ -28,6 +28,14 @@ export default class App extends Component<any, {recipe?: RecipeData}> {
     this.fetchRecipe().then(recipe => this.setState({recipe}));
   }
 
+  componentDidUpdate() {
+    const title = "rezepte.ttst.de";
+    if (this.queriedRecipe) {
+      document.title = `${decodeURI(this.queriedRecipe)} | ${title}`;
+    }
+    else document.title = title;
+  }
+
   async fetchRecipe(): Promise<RecipeData | undefined> {
     if (this.queriedRecipe) {
       let recipeName = decodeURI(this.queriedRecipe);
