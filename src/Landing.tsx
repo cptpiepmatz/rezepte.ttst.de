@@ -1,4 +1,5 @@
 import {Component} from "react";
+
 import logo from "./logo.svg";
 
 export default class Landing extends Component {
