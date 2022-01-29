@@ -27,7 +27,7 @@ export default class SideCard extends Component<RecipeOptions> {
           this.props.pdf &&
           <div className={"card-content p-0"}>
             <a href={this.props.pdf} target={"_blank"}>
-              <p className={"p-3 has-text-primary"}>🖨️ PDF zum ausdrucken</p>
+              <p className={"p-3"}>🖨️ PDF zum ausdrucken</p>
             </a>
           </div>
         }
@@ -35,7 +35,7 @@ export default class SideCard extends Component<RecipeOptions> {
           this.props.inspiration &&
           <div className={"card-content p-0"}>
             <a href={this.props.inspiration} target="_blank">
-              <p className={"p-3 has-text-primary"}>💡 Inspiration</p>
+              <p className={"p-3"}>💡 Inspiration</p>
             </a>
           </div>
         }

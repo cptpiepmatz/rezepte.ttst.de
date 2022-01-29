@@ -4,41 +4,62 @@ export default class Footer extends Component {
   render() {
     return <>
       <footer className={"footer has-background-black-ter has-text-white-ter"}>
-        <p className={"has-text-centered pb-4"}>
-          <b>rezepte.tts.de</b> entwickelt von <a
+        <div className={"has-text-centered"}>
+          <p className={"block"}>
+            <b>rezepte.tts.de</b> entwickelt von <a
             className={"has-text-white-ter"}
             href={"https://cptpiepmatz.de"}
             target={"_blank"}
           >
             <b>Tim Hesse</b>
-          </a> mit <a
-          className={"has-text-white-ter"}
-          href={"https://bulma.io"}
-          target={"_blank"}
-        >
-          <b>Bulma</b>
-        </a> und <a
-          className={"has-text-white-ter"}
-          href={"https://reactjs.org"}
-          target={"_blank"}
-        >
-          <b>React</b>
-        </a>
-        </p>
-        <div className={"menu has-text-centered"}>
-            <ul className={"menu-list"}>
-              <li>
-                <a href={"https://github.com/cptpiepmatz/rezepte.ttst.de"} target={"_blank"}>
-                  📖 Quellcode
+          </a>
+          </p>
+          <div className={"columns is-centered"}>
+            <div className={"column is-narrow"}>
+              <div className={"block mb-2"}>
+                <a
+                  href="https://reactjs.org"
+                  className={"has-hover-text-white"}
+                  target={"_blank"}
+                >
+                  💻 Entwickelt in <b>React</b>
                 </a>
-              </li>
-              <li>
-                <a href={"mailto:mail@ttst.de"}>
-                  📧 Schick 'ne Mail
+              </div>
+            </div>
+            <div className={"column is-narrow"}>
+              <div className={"block mb-2"}>
+                <a
+                  href="https://bulma.io"
+                  className={"has-hover-text-white"}
+                  target={"_blank"}
+                >
+                  🖌️ Gestaltet mit <b>Bulma</b>
                 </a>
-              </li>
-            </ul>
+              </div>
+            </div>
+            <div className={"column is-narrow"}>
+              <div className={"block mb-2"}>
+                <a
+                  href={"https://github.com/cptpiepmatz/rezepte.ttst.de"}
+                  target={"_blank"}
+                  className={"has-hover-text-white"}
+                >
+                  📖 <b>Quellcode</b> der Seite
+                </a>
+              </div>
+            </div>
+            <div className={"column is-narrow"}>
+              <div className={"block mb-2"}>
+                <a
+                  href={"mailto:mail@ttst.de"}
+                  className={"has-hover-text-white"}
+                >
+                  📧 Schick 'ne <b>Mail</b>
+                </a>
+              </div>
+            </div>
           </div>
+        </div>
       </footer>
     </>
   }

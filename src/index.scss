@@ -5,6 +5,7 @@
 @import "../node_modules/bulma/sass/utilities/functions";
 
 $primary: #34ac46;
+$link: $primary;
 
 $divider-margin-inner-size: 0;
 
@@ -16,6 +17,10 @@ $body-background-color-dark: #1d1e1c;
 
 html {
   overflow-y: auto;
+}
+
+.has-hover-text-white:hover {
+  color: $white;
 }
 
 .navMenu {
