@@ -5,20 +5,23 @@ import RecipeParser from "./recipes/RecipeParser";
 import Recipe from "./recipes/components/Recipe";
 import RecipeData from "./recipes/Recipe";
 import Landing from "./Landing";
+import NotFound from "./error/NotFound";
 
-export default class App extends Component<any, {recipe?: RecipeData}> {
+export default class App extends Component<any, {recipe?: RecipeData, error: number}> {
 
   private readonly queriedRecipe?: string;
 
   constructor(props: any) {
     super(props);
     this.queriedRecipe = this.props.search?.match(/recipe=([^&]*)/)?.[1];
+    this.state = {error: 0};
   }
 
   render() {
     return (
       <Layout>
-        {this.queriedRecipe && <Recipe {...this.state?.recipe}/>}
+        {this.queriedRecipe && !this.state.error &&<Recipe {...this.state?.recipe}/>}
+        {this.queriedRecipe && (this.state.error === 404) && <NotFound/>}
         {!this.queriedRecipe && <Landing/>}
       </Layout>
     );
@@ -42,7 +45,10 @@ export default class App extends Component<any, {recipe?: RecipeData}> {
       let recipeResponse = await fetch(
         `/_REZEPTE_/${recipeName}.rezept.txt`
       );
-      if (!recipeResponse.ok) {} // TODO: do stuff if not ok
+      if (!recipeResponse.ok) {
+        this.setState({error: recipeResponse.status});
+        return;
+      }
       let recipeRaw = await recipeResponse.text();
       return RecipeParser.parse(recipeRaw, recipeName);
     }
