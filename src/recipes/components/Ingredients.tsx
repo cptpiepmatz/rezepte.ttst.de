@@ -11,39 +11,61 @@ export default class Ingredients extends Component<RecipeOptions> {
   render() {
     if (!this.props.ingredients) return null;
 
-    let tableRows: JSX.Element[] = [];
+    let gridElements: JSX.Element[] = [];
+    let rowCounter: number = 1;
     for (let [label, ingredients] of Object.entries(this.props.ingredients)) {
-      if (label !== "_") tableRows.push(
-        <tr key={`${label}`}>
-          <td className={"pt-2"}>
-            <strong>
-              {label}
-            </strong>
-          </td>
-        </tr>
+      if (label !== "_") gridElements.push(
+        <div style={{gridRow: rowCounter, gridColumn: 1}}/>,
+        <div key={label} style={{gridRow: rowCounter, gridColumn: 2}} className={"pt-3"}>
+          <strong>
+            {label}
+          </strong>
+        </div>,
+        <div style={{gridRow: rowCounter, gridColumn: 3}}/>,
+        <div style={{gridRow: rowCounter++, gridColumn: 4}}/>
       );
       for (let ingredient of ingredients!) {
-        tableRows.push(
-          <tr key={`${label}.${ingredient.description}`}>
-            <td>
-              {ingredient.amountToString()} {ingredient.unit}
-            </td>
-            <td className={"pl-2"}>
-              {ingredient.description}
-            </td>
-          </tr>
-        );
+        gridElements.push(
+          <div style={{gridRow: rowCounter, gridColumn: 1}}/>,
+          <div
+            key={`${label}.${ingredient}.unit`}
+            style={{
+              gridRow: rowCounter,
+              gridColumn: 2,
+              padding: "0 1rem 0.3rem 1rem"
+            }}
+          >
+            {ingredient.amountToString()} {ingredient.unit}
+          </div>,
+          <div
+            key={`${label}.${ingredient}.description`}
+            style={{
+              gridRow: rowCounter,
+              gridColumn: 3,
+              maxWidth: "calc(60vw - 2rem)",
+              padding: "0 1rem 0.3rem 0"
+            }}
+          >
+            {ingredient.description}
+          </div>,
+          <div style={{gridRow: rowCounter++, gridColumn: 4}}/>
+        )
       }
     }
 
     return <>
       <div className={"container"}>
         <p className={"title is-4 has-text-centered"}>Zutaten</p>
-        <table className={"container"}>
-          <tbody>
-          {tableRows}
-          </tbody>
-        </table>
+        <div className={"container"}>
+          <div className={"ingredients"} style={{
+            display: "grid",
+            gridTemplateColumns: "1fr max-content max-content 1fr",
+            columnGap: 0,
+            rowGap: 0
+          }}>
+            {gridElements}
+          </div>
+        </div>
       </div>
     </>
   }

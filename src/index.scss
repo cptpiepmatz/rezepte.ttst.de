@@ -35,3 +35,21 @@ html {
     filter: invert(1);
   }
 }
+
+@media (max-width: 768px) {
+  .ingredients > div:nth-child(8n),
+  .ingredients > div:nth-child(8n-1),
+  .ingredients > div:nth-child(8n-2),
+  .ingredients > div:nth-child(8n-3) {
+    background-color: darken($body-background-color, 10);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .ingredients > div:nth-child(8n),
+    .ingredients > div:nth-child(8n-1),
+    .ingredients > div:nth-child(8n-2),
+    .ingredients > div:nth-child(8n-3) {
+      background-color: lighten($body-background-color-dark, 5);
+    }
+  }
+}
