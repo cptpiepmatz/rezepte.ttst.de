@@ -60,7 +60,7 @@ export default class Ingredients extends Component<RecipeOptions> {
         </p>
         <p
           className={"title is-4 has-text-centered is-hidden-tablet"}
-          style={{marginBottom: 0}}
+          style={{marginBottom: "1rem"}}
         >
           Zutaten
         </p>
