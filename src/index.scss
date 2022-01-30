@@ -37,6 +37,13 @@ html {
 }
 
 @media (max-width: 768px) {
+  .is-reversed-mobile {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+@media (max-width: 768px) {
   .ingredients > div:nth-child(8n),
   .ingredients > div:nth-child(8n-1),
   .ingredients > div:nth-child(8n-2),

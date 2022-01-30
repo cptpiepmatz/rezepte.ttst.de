@@ -55,7 +55,15 @@ export default class Ingredients extends Component<RecipeOptions> {
 
     return <>
       <div className={"container"}>
-        <p className={"title is-4 has-text-centered"}>Zutaten</p>
+        <p className={"title is-4 has-text-centered is-hidden-mobile"}>
+          Zutaten
+        </p>
+        <p
+          className={"title is-4 has-text-centered is-hidden-tablet"}
+          style={{marginBottom: 0}}
+        >
+          Zutaten
+        </p>
         <div className={"container"}>
           <div className={"ingredients"} style={{
             display: "grid",
