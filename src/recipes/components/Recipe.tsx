@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown";
 import SideCard from "./SideCard";
 import Ingredients from "./Ingredients";
 import RecipeOptions from "../RecipeOptions";
+import rehypeRaw from "rehype-raw";
 
 export default class Recipe extends Component<RecipeOptions> {
   constructor(props: RecipeOptions) {
@@ -32,7 +33,7 @@ export default class Recipe extends Component<RecipeOptions> {
             <div className={"columns"}>
               <div className={"column is-10 is-offset-1"}>
                 <div className={"content"}>
-                  <ReactMarkdown children={this.props.preparation}/>
+                  <ReactMarkdown children={this.props.preparation} rehypePlugins={[rehypeRaw]}/>
                 </div>
               </div>
             </div>
