@@ -6,7 +6,7 @@ export default class Footer extends Component {
       <footer className={"footer has-background-black-ter has-text-white-ter"}>
         <div className={"has-text-centered"}>
           <p className={"block"}>
-            <b>rezepte.tts.de</b> entwickelt von <a
+            <b>rezepte.ttst.de</b> entwickelt von <a
             className={"has-text-white-ter"}
             href={"https://cptpiepmatz.de"}
             target={"_blank"}
