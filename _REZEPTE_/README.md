@@ -54,14 +54,14 @@ Optional
 ```
 
 >1 Karotte  
-1 Apfel  
-<br>
-**Gewürze**  
-1 Prise Zucker  
-etwas Salz  
-<br>
-**Optional**  
-Chilipulver  
+>1 Apfel  
+><br>
+>**Gewürze**  
+>1 Prise Zucker  
+>etwas Salz  
+><br>
+>**Optional**  
+>Chilipulver  
 
 ### [Zubereitung]
 Das Segment der Zubereitung erwartet einen Markdown Text, der auch direkte HTML
