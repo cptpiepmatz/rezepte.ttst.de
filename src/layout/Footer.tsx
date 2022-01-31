@@ -65,7 +65,7 @@ export default class Footer extends Component {
             target={"_blank"}
             href={"https://github.com/cptpiepmatz/rezepte.ttst.de/blob/main/_REZEPTE_/README.md"}
           >
-            Wie man Rezept für <i>rezepte.ttst.de</i> schreibt
+            Wie man Rezepte für <i>rezepte.ttst.de</i> schreibt
           </a>
         </div>
       </footer>

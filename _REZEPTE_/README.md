@@ -1,4 +1,4 @@
-# Wie man Rezept für *rezepte.ttst.de* schreibt
+# Wie man Rezepte für *rezepte.ttst.de* schreibt
 Zunächst werden Rezepte dynamisch beim Seitenaufruf geladen, ist also ein Rezept
 auf dem Server im *_REZEPTE_* Ordner, wird es sowohl in der Navigation links,
 als auch beim Aufruf verfügbar sein.
