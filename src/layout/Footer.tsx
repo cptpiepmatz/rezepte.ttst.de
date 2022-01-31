@@ -3,7 +3,7 @@ import {Component} from "react";
 export default class Footer extends Component {
   render() {
     return <>
-      <footer className={"footer has-background-black-ter has-text-white-ter"}>
+      <footer className={"footer has-background-black-ter has-text-white-ter pb-6"}>
         <div className={"has-text-centered"}>
           <p className={"block"}>
             <b>rezepte.ttst.de</b> entwickelt von <a
@@ -59,6 +59,14 @@ export default class Footer extends Component {
               </div>
             </div>
           </div>
+          <a
+            className={"block"}
+            style={{fontSize: "0.7rem"}}
+            target={"_blank"}
+            href={"https://github.com/cptpiepmatz/rezepte.ttst.de/blob/main/_REZEPTE_/README.md"}
+          >
+            Wie man Rezept für <i>rezepte.ttst.de</i> schreibt
+          </a>
         </div>
       </footer>
     </>
