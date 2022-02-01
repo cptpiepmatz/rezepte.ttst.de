@@ -2,17 +2,27 @@ import Recipe from "./Recipe";
 import RecipeOptions from "./RecipeOptions";
 import Ingredient from "./Ingredient";
 
+/** Parser .rezept.txt files to a {@link Recipe}. */
 export default class RecipeParser {
 
+  // This is a pure utility function, so the constructor is private
   private constructor() {}
 
+  /**
+   * Method to parse the content of a .rezept.txt file.
+   * @param content The content of the recipe file.
+   * @param name The name of the recipe.
+   */
   static parse(content: string, name: string): Recipe {
+
+    // regex matchers for getting the content segments
     const resultImageMatcher = /\[Resultatbild\](?<resultImage>[^\[]+)/;
     const pdfMatcher = /\[PDF\](?<pdf>[^\[]+)/;
     const ingredientsMatcher = /\[Zutaten\](?<ingredients>[^\[]+)/;
     const preparationMatcher = /\[Zubereitung\](?<preparation>(!\[.*\]\(.*\)|[^\[])+)/;
     const inspirationMatcher = /\[Inspiration\](?<inspiration>[^\[]+)/;
 
+    // assign every match to a single object to evaluate further
     let matches: {[Property in keyof RecipeOptions]: string} = {};
     for (let matcher of [
       resultImageMatcher,
@@ -31,12 +41,14 @@ export default class RecipeParser {
     recipeOptions.inspiration = matches.inspiration?.trim();
 
     if (matches.ingredients) {
+      // construct the ingredient object
+      // the key "_" represents the entries without a group name
       let rows = matches.ingredients.trim().split("\n");
       let section = "_";
       let ingredients: RecipeOptions["ingredients"] = {};
       for (let row of rows) {
         row = row.trim();
-        if (row.length === 0) continue;
+        if (row.length === 0) continue; // skip empty lines
         let rowElems = row.split(";");
         if (rowElems.length < 3) {
           section = row;
