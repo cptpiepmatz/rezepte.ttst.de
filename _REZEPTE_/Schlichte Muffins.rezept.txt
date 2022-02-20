@@ -1,3 +1,6 @@
+[Resultatbild]
+Resultat.jpg
+
 [Zutaten]
 3;EL;Zucker
 3;geh. EL;Mehl (Dinkel 630 oder Weizen 405)
@@ -6,9 +9,19 @@
 ;;etwas Milch/Wasser mit Kohlensäure
 ;;Backpulver
 ;;Vanillezucker
+Optional
+1;geh. EL;Zuckerdekor
+10;g;Raspelschokolade
+25;g;Chokolatechunks (wird heftig)
 
 [Zubereitung]
+Bei 4 x Teig ein halbes Päckchen Vanillezucker und halbes Päckchen Backpulver verwenden.
+Die Zutaten (ohne "Optional") ohne Milch/Wasser verrühren und dann
+mit etwas Milch/Wasser eine etwas flüssigerere Konsistenz erzeugen.
+![verrührter Teig](Teig.jpg)
+Das Rezept reicht für ca. **drei** volle Muffins.<br>
+Die optionalen Zutaten reichen für **vier** Muffins.<br>
+Das Förmchen bis ca. 2 mm unter dem Rand füllen.
+![gefüllte Förmchen](roh.jpg)
 Ca. 20 Minuten bei 180°C Unter-/Oberhitze backen
-Zutaten ohne Milch / Wasser verrühren und dann mit etwas Milch / Wasser eine
-etwas flüssigerere Konsistenz erzeugen
-Das Rezept reicht für ca. **sechs** Muffins
+![fertig gebacken](gebacken.jpg)
