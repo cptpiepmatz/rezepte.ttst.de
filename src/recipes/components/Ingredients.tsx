@@ -13,22 +13,39 @@ export default class Ingredients extends Component<RecipeOptions> {
 
     let gridElements: JSX.Element[] = [];
     let rowCounter: number = 1;
+    function rowClass() {
+      if (rowCounter % 2 === 0) return "row-even";
+      return "row-odd";
+    }
     for (let [label, ingredients] of Object.entries(this.props.ingredients)) {
       if (label !== "_") gridElements.push(
-        <div style={{gridRow: rowCounter, gridColumn: 1}}/>,
-        <div key={label} style={{gridRow: rowCounter, gridColumn: 2}} className={"pt-3"}>
+        <div
+          className={rowClass()}
+          style={{gridRow: rowCounter, gridColumn: 1}}
+        />,
+        <div
+          key={label}
+          className={"pt-3 has-text-centered " + rowClass()}
+          style={{gridRow: rowCounter, gridColumn: "span 2"}}
+        >
           <strong>
             {label}
           </strong>
         </div>,
-        <div style={{gridRow: rowCounter, gridColumn: 3}}/>,
-        <div style={{gridRow: rowCounter++, gridColumn: 4}}/>
+        <div
+          className={rowClass()}
+          style={{gridRow: rowCounter++, gridColumn: 4}}
+        />
       );
       for (let ingredient of ingredients!) {
         gridElements.push(
-          <div style={{gridRow: rowCounter, gridColumn: 1}}/>,
+          <div
+            className={rowClass()}
+            style={{gridRow: rowCounter, gridColumn: 1}}
+          />,
           <div
             key={`${label}.${ingredient}.unit`}
+            className={rowClass()}
             style={{
               gridRow: rowCounter,
               gridColumn: 2,
@@ -39,6 +56,7 @@ export default class Ingredients extends Component<RecipeOptions> {
           </div>,
           <div
             key={`${label}.${ingredient}.description`}
+            className={rowClass()}
             style={{
               gridRow: rowCounter,
               gridColumn: 3,
@@ -48,7 +66,10 @@ export default class Ingredients extends Component<RecipeOptions> {
           >
             {ingredient.description}
           </div>,
-          <div style={{gridRow: rowCounter++, gridColumn: 4}}/>
+          <div
+            className={rowClass()}
+            style={{gridRow: rowCounter++, gridColumn: 4}}
+          />
         )
       }
     }
