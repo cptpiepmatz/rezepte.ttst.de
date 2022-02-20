@@ -38,7 +38,7 @@ export default class Recipe extends Component<RecipeOptions> {
           <div className={"column is-two-thirds"}>
             <div className={"columns"}>
               <div className={"column is-10 is-offset-1"}>
-                <div className={"content"}>
+                <div className={"content preparation"}>
                   <ReactMarkdown children={this.props.preparation} rehypePlugins={[rehypeRaw]}/>
                 </div>
               </div>
