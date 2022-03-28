@@ -37,8 +37,9 @@ export default class Recipe {
         // because I'm lazy this currently removes the alt text of the images
         // TODO: fix this some time
         .replaceAll(
-          /!\[.*\]\((.*)\)/g,
-          (match, file) => `![](${encodeURI(`_REZEPTE_/img/${this.name}/${file}`)})`
+          /!\[(?:!(?:\d+(?:cm|mm))? )?(?<alt>.*)\]\((?<url>.*)\)/g,
+          (match, p1, p2, offset, string, namedGroups) =>
+            `![${namedGroups.alt}](${encodeURI(`_REZEPTE_/img/${this.name}/${namedGroups.url}`)})`
         );
     }
   }
