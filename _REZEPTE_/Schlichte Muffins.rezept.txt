@@ -1,6 +1,9 @@
 [Resultatbild]
 Resultat.jpg
 
+[PDF]
+SchlichteMuffins.pdf
+
 [Zutaten]
 3;EL;Zucker
 3;geh. EL;Mehl (Dinkel 630 oder Weizen 405)

@@ -9,15 +9,16 @@
 ;;Paprika (Gewürz)
 ;;Petersilie
 
+[Resultatbild]
+Wikingertopf.jpg
+
 [Inspiration]
 http://www.chefkoch.de/rezepte/1738671282836420/Yvonnes-Wikingertopf.html
 
 [Zubereitung]
-Das Hackfleisch mit Salz, Pfeffer und Paprika würzen, dann kleine Bällchen
-formen und diese in einer Pfanne mit etwas Öl kräftig anbraten.
-Mit den Erbsen, Möhren und dem Wasser aus der Dose ablöschen und etwas
-Fleischbrühe hinzugeben.
-Nun die Sahne hinzufügen und das Ganze 5 Minuten köcheln lassen bei mittlerer
-Hitze.
-Mit Maisstärke etwas eindicken und mit Salz, Pfeffer, Paprika und den Kräutern
-abschmecken!
+Das Gericht wird mit Kartoffeln serviert. Am besten als erstes die Kartoffeln schälen und in einem Kochtopf mit Wasser bedeckt beiseite stellen.
+Das Hackfleisch mit Salz, Pfeffer und Paprika würzen, dann kleine Bällchen formen.
+![!10cm Hackbällchen](Hack.jpg)
+Die Kartoffeln aufsetzen, damit sie mit dem Wikingertopf zusammen gar sind. Die Hackbällchen in einer Pfanne mit etwas Öl kräftig anbraten.
+Mit den Erbsen, Möhren und dem Wasser aus der Dose ablöschen und etwas Brühe hinzugeben. Nun die Sahne hinzufügen und das Ganze bei mittlerer 
+Hitze einkochen lassen. Wenn die Soße die gewünschte Konsistenz erreicht hat, mit Salz, Pfeffer, Paprika und den Kräutern abschmecken!

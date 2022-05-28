@@ -7,7 +7,8 @@ Pizza.pdf
 [Zutaten]
 Boden
 500;g;Dinkelmehl 630
-250;ml;lauwarmes Wasser
+1;Würfel;Hefe
+250;ml;Wasser
 15;g;Kristallsalz
 1;kleine Prise;Zucker
 1;EL;Olivenöl
@@ -21,7 +22,7 @@ Soße
 
 [Zubereitung]
 Mehl, Kristallsalz und Zucker in eine Rührschüssel geben.
-Die Hefe mit 150 ml lauwarmen Wasser in einem Shaker auflösen und hinzufügen.
+Die Hefe mit 150 ml Wasser in einem Shaker auflösen und hinzufügen.
 Auf diese Art hat man keine Hefeklumpen, die nachher zu dicken Blasen auf dem
 Boden führen.
 Die restlichen 100 ml Wasser und das Olivenöl hinzufügen.
