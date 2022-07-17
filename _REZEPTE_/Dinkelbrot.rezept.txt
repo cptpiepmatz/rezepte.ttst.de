@@ -6,7 +6,7 @@ Dinkelbrot2.jpg
 5;g;Zucker
 10;g;Kristallsalz
 250;ml;lauwarmes Wasser
-0,5;Würfel;Hefe
+1/2;Würfel;Hefe
 3;EL;Olivenöl
 
 [Inspiration]
