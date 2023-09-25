@@ -1,5 +1,5 @@
-use std::collections::HashMap;
 use serde::Deserialize;
+use std::collections::HashMap;
 
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -9,7 +9,7 @@ pub struct Recipe {
     pub ingredients: Option<HashMap<String, Vec<Ingredient>>>,
     pub preparation: Option<String>,
     pub pdf: Option<String>,
-    pub inspiration: Option<String>
+    pub inspiration: Option<String>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -17,5 +17,5 @@ pub struct Recipe {
 pub struct Ingredient {
     pub amount: Option<f64>,
     pub unit: Option<String>,
-    pub description: Option<String>
+    pub description: Option<String>,
 }
