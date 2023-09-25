@@ -1,0 +1,19 @@
+:3000 {
+
+    # Set the root directory
+    root * ./
+
+    # Handle that one PHP script
+    handle /_REZEPTE_/_Rezeptliste.php {
+        reverse_proxy localhost:3002
+    }
+
+    # Handle requests to the _REZEPTE_ directory
+    handle_path /_REZEPTE_* {
+        root * ./_REZEPTE_
+        file_server browse
+    }
+
+    # Reverse proxy everything else to port 3001
+    reverse_proxy localhost:3001
+}
