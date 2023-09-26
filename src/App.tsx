@@ -43,7 +43,8 @@ export default class App extends Component<any, AppProps> {
       <App.RecipesContext.Provider value={this.state.recipes}>
         <App.QueriedRecipeContext.Provider value={this.state.queriedRecipe}>
           <Layout>
-            {this.state.queriedRecipe && !this.state.error &&<Recipe {...this.state?.recipe}/>}
+            {this.state.queriedRecipe && !this.state.error && this.state.recipe &&
+                <Recipe recipe={this.state.recipe}/>}
             {this.state.queriedRecipe && (this.state.error === 404) && <NotFound/>}
             {!this.state.queriedRecipe && <Landing/>}
           </Layout>
@@ -69,8 +70,7 @@ export default class App extends Component<any, AppProps> {
     const title = "rezepte.ttst.de";
     if (this.queriedRecipe) {
       document.title = `${decodeURI(this.queriedRecipe)} | ${title}`;
-    }
-    else document.title = title;
+    } else document.title = title;
   }
 
   async fetchRecipeList(): Promise<[string, number][]> {
@@ -82,21 +82,21 @@ export default class App extends Component<any, AppProps> {
 
     let raw = await response.text();
     return raw
-        .trim()
-        .split("\n")
-        .map(e => e.trim())
-        .map(e => e.split("?"))
-        .map(([name, timestamp]) => [name, +timestamp]);
+      .trim()
+      .split("\n")
+      .map(e => e.trim())
+      .map(e => e.split("?"))
+      .map(([name, timestamp]) => [name, +timestamp]);
   }
 
   async fetchRecipe(
-      recipeTimestamps: Record<string, number>
+    recipeTimestamps: Record<string, number>
   ): Promise<RecipeData | undefined> {
     if (this.state.queriedRecipe) {
       let recipeName = decodeURI(this.state.queriedRecipe);
       let recipeTimestamp = recipeTimestamps[recipeName];
       let recipeResponse = await fetch(
-          `/_REZEPTE_/${recipeName}.rezept.txt?${recipeTimestamp}`
+        `/_REZEPTE_/${recipeName}.rezept.txt?${recipeTimestamp}`
       );
       if (!recipeResponse.ok) {
         this.setState({error: recipeResponse.status});

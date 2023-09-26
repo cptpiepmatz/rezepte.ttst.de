@@ -1,45 +1,48 @@
 import {Component} from "react";
 
-import RecipeOptions from "../RecipeOptions";
+import RecipeData from "../Recipe"
 
-export default class SideCard extends Component<RecipeOptions> {
-
-  constructor(props: RecipeOptions) {
-    super(props);
-  }
-
+export default class SideCard extends Component<{recipe: RecipeData}> {
   render() {
-    if (!(this.props.resultImage || this.props.pdf || this.props.inspiration)) {
+    if (!(
+        this.props.recipe.resultImage ||
+        this.props.recipe.pdf ||
+        this.props.recipe.inspiration
+    )) {
       return null;
     }
 
     return <>
       <div className={"card"}>
         {
-          this.props.resultImage &&
+          this.props.recipe.resultImage &&
           <div className={"card-image"}>
             <figure className={"image"}>
-              <img src={this.props.resultImage} alt=""/>
+              <img src={this.props.recipe.resultImage} alt=""/>
             </figure>
           </div>
         }
         {
-          this.props.pdf &&
+          this.props.recipe.pdf &&
           <div className={"card-content p-0"}>
-            <a href={this.props.pdf} target={"_blank"}>
+            <a href={this.props.recipe.pdf} target={"_blank"}>
               <p className={"p-3"}>🖨️ PDF zum ausdrucken</p>
             </a>
           </div>
         }
         {
-          this.props.inspiration &&
+          this.props.recipe.inspiration &&
           <div className={"card-content p-0"}>
-            <a href={this.props.inspiration} target="_blank">
+            <a href={this.props.recipe.inspiration} target="_blank">
               <p className={"p-3"}>💡 Inspiration</p>
             </a>
           </div>
         }
       </div>
     </>
+  }
+
+  genPDF() {
+    console.log("yay!");
   }
 }
