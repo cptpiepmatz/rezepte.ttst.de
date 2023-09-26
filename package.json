@@ -6,6 +6,7 @@
   "scripts": {
     "start": "concurrently \"craco start\" \"php -S localhost:3002 -t .\" \"caddy run\"",
     "build": "craco build",
+    "postbuild": "cp -r _REZEPTE_ build/",
     "eject": "react-scripts eject"
   },
   "dependencies": {
