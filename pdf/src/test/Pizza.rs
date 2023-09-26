@@ -1,9 +1,9 @@
+use crate::ext::{Ingredient, Recipe};
+use crate::gen_recipe_pdf_impl;
+use indexmap::IndexMap;
 use std::fs;
 use std::fs::File;
 use std::path::PathBuf;
-use indexmap::IndexMap;
-use crate::ext::{Ingredient, Recipe};
-use crate::gen_recipe_pdf_impl;
 
 static PREPARATION: &str = r#"Mehl, Kristallsalz und Zucker in eine Rührschüssel geben.
 Die Hefe mit 150 ml Wasser in einem Shaker auflösen und hinzufügen.
@@ -52,22 +52,76 @@ fn recipe() -> Recipe {
         name: Some("Pizza".to_string()),
         result_image: Some("/_REZEPTE_/img/Pizza/Pizza3.jpg".to_string()),
         ingredients: Some(IndexMap::from([
-            ("Boden".to_string(), vec![
-                Ingredient { amount: Some(500.0), unit: Some("g".to_string()), description: Some("Dinkelmehl 630".to_string()) },
-                Ingredient { amount: Some(1.0), unit: Some("Würfel".to_string()), description: Some("Hefe".to_string()) },
-                Ingredient { amount: Some(250.0), unit: Some("ml".to_string()), description: Some("Wasser".to_string()) },
-                Ingredient { amount: Some(15.0), unit: Some("g".to_string()), description: Some("Kristallsalz".to_string()) },
-                Ingredient { amount: Some(1.0), unit: Some("kleine Prise".to_string()), description: Some("Zucker".to_string()) },
-                Ingredient { amount: Some(1.0), unit: Some("EL".to_string()), description: Some("Olivenöl".to_string()) },
-            ]),
-            ("Soße".to_string(), vec![
-                Ingredient { amount: Some(500.0), unit: Some("g".to_string()), description: Some("passierte Tomaten".to_string()) },
-                Ingredient { amount: Some(1.0), unit: Some("kleine Prise".to_string()), description: Some("Zucker".to_string()) },
-                Ingredient { amount: None, unit: None, description: Some("Kristallsalz".to_string()) },
-                Ingredient { amount: None, unit: None, description: Some("Pfeffer".to_string()) },
-                Ingredient { amount: None, unit: None, description: Some("Basilikum, gerebelt".to_string()) },
-                Ingredient { amount: None, unit: None, description: Some("Oregano, gerebelt".to_string()) },
-            ]),
+            (
+                "Boden".to_string(),
+                vec![
+                    Ingredient {
+                        amount: Some(500.0),
+                        unit: Some("g".to_string()),
+                        description: Some("Dinkelmehl 630".to_string()),
+                    },
+                    Ingredient {
+                        amount: Some(1.0),
+                        unit: Some("Würfel".to_string()),
+                        description: Some("Hefe".to_string()),
+                    },
+                    Ingredient {
+                        amount: Some(250.0),
+                        unit: Some("ml".to_string()),
+                        description: Some("Wasser".to_string()),
+                    },
+                    Ingredient {
+                        amount: Some(15.0),
+                        unit: Some("g".to_string()),
+                        description: Some("Kristallsalz".to_string()),
+                    },
+                    Ingredient {
+                        amount: Some(1.0),
+                        unit: Some("kleine Prise".to_string()),
+                        description: Some("Zucker".to_string()),
+                    },
+                    Ingredient {
+                        amount: Some(1.0),
+                        unit: Some("EL".to_string()),
+                        description: Some("Olivenöl".to_string()),
+                    },
+                ],
+            ),
+            (
+                "Soße".to_string(),
+                vec![
+                    Ingredient {
+                        amount: Some(500.0),
+                        unit: Some("g".to_string()),
+                        description: Some("passierte Tomaten".to_string()),
+                    },
+                    Ingredient {
+                        amount: Some(1.0),
+                        unit: Some("kleine Prise".to_string()),
+                        description: Some("Zucker".to_string()),
+                    },
+                    Ingredient {
+                        amount: None,
+                        unit: None,
+                        description: Some("Kristallsalz".to_string()),
+                    },
+                    Ingredient {
+                        amount: None,
+                        unit: None,
+                        description: Some("Pfeffer".to_string()),
+                    },
+                    Ingredient {
+                        amount: None,
+                        unit: None,
+                        description: Some("Basilikum, gerebelt".to_string()),
+                    },
+                    Ingredient {
+                        amount: None,
+                        unit: None,
+                        description: Some("Oregano, gerebelt".to_string()),
+                    },
+                ],
+            ),
         ])),
         preparation: Some(PREPARATION.to_string()),
         pdf: Some("/_REZEPTE_/pdf/Pizza.pdf".to_string()),

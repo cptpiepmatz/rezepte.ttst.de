@@ -1,8 +1,8 @@
 use crate::ext::Recipe;
+use crate::utils::log;
 use std::io::Write;
 use utils::ErrToJS;
 use wasm_bindgen::prelude::*;
-use crate::utils::log;
 
 mod ext;
 mod utils;

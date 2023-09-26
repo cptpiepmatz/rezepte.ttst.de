@@ -1,5 +1,5 @@
-use serde::Deserialize;
 use indexmap::IndexMap;
+use serde::Deserialize;
 
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "camelCase")]
