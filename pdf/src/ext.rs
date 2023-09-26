@@ -1,12 +1,12 @@
 use serde::Deserialize;
-use std::collections::HashMap;
+use indexmap::IndexMap;
 
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Recipe {
     pub name: Option<String>,
     pub result_image: Option<String>,
-    pub ingredients: Option<HashMap<String, Vec<Ingredient>>>,
+    pub ingredients: Option<IndexMap<String, Vec<Ingredient>>>,
     pub preparation: Option<String>,
     pub pdf: Option<String>,
     pub inspiration: Option<String>,
