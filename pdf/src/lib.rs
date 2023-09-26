@@ -7,6 +7,9 @@ use crate::utils::log;
 mod ext;
 mod utils;
 
+#[cfg(test)]
+mod test;
+
 #[wasm_bindgen]
 pub fn gen_recipe_pdf(ser_recipe: &str) -> Result<Vec<u8>, JsValue> {
     utils::set_panic_hook();
