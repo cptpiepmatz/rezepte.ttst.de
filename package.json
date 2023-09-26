@@ -4,8 +4,8 @@
   "author": "Tim 'Piepmatz' Hesse",
   "private": true,
   "scripts": {
-    "start": "concurrently \"react-scripts start\" \"php -S localhost:3002 -t .\" \"caddy run\"",
-    "build": "react-scripts build",
+    "start": "concurrently \"craco start\" \"php -S localhost:3002 -t .\" \"caddy run\"",
+    "build": "craco build",
     "eject": "react-scripts eject"
   },
   "dependencies": {
@@ -25,6 +25,8 @@
     "@types/react": "^18.2.22",
     "@types/react-dom": "^18.2.7",
     "concurrently": "^8.2.1",
+    "craco": "^0.0.3",
+    "craco-wasm": "^0.0.1",
     "sass": "^1.68.0",
     "typescript": "<5.0.0"
   },
