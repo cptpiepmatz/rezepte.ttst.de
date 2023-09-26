@@ -1,4 +1,4 @@
-import {Component} from "react";
+import {Component, ReactElement} from "react";
 
 import RecipeData from "../Recipe";
 
@@ -6,7 +6,7 @@ export default class Ingredients extends Component<{recipe: RecipeData}> {
   render() {
     if (!this.props.recipe.ingredients) return null;
 
-    let gridElements: JSX.Element[] = [];
+    let gridElements: ReactElement[] = [];
     let rowCounter: number = 1;
     function rowClass() {
       if (rowCounter % 2 === 0) return "row-even";
