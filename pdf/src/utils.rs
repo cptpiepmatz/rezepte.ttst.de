@@ -46,6 +46,7 @@ macro_rules! log {
     ($($arg:tt)*) => {{
         let formatted = format!($($arg)*);
         println!("{}", formatted);
+        #[cfg(target_arch = "wasm32")]
         $crate::utils::console::log(&formatted);
     }};
 }
