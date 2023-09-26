@@ -2,6 +2,7 @@ use crate::ext::Recipe;
 use std::io::Write;
 use utils::ErrToJS;
 use wasm_bindgen::prelude::*;
+use crate::utils::log;
 
 mod ext;
 mod utils;
@@ -21,5 +22,6 @@ pub fn gen_recipe_pdf(ser_recipe: &str) -> Result<Vec<u8>, JsValue> {
 
 // TODO: make the error type useful
 fn gen_recipe_pdf_impl(recipe: Recipe, w: impl Write) -> Result<(), ()> {
+    log!("{:#?}", &recipe);
     todo!()
 }

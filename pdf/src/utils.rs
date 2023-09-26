@@ -31,3 +31,23 @@ pub fn set_panic_hook() {
     #[cfg(feature = "console_error_panic_hook")]
     console_error_panic_hook::set_once();
 }
+
+pub mod console {
+    use wasm_bindgen::prelude::*;
+
+    #[wasm_bindgen]
+    extern "C" {
+        #[wasm_bindgen(js_namespace = console)]
+        pub fn log(s: &str);
+    }
+}
+
+macro_rules! log {
+    ($($arg:tt)*) => {{
+        let formatted = format!($($arg)*);
+        println!("{}", formatted);
+        $crate::utils::console::log(&formatted);
+    }};
+}
+
+pub(crate) use log;
