@@ -4,7 +4,9 @@
   "author": "Tim 'Piepmatz' Hesse",
   "private": true,
   "scripts": {
+    "prestart": "cd pdf && wasm-pack build",
     "start": "concurrently \"craco start\" \"php -S localhost:3002 -t .\" \"caddy run\"",
+    "prebuild": "cd pdf && wasm-pack build",
     "build": "craco build",
     "postbuild": "cp -r _REZEPTE_ build/",
     "eject": "react-scripts eject"
