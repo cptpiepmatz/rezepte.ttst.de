@@ -35,16 +35,6 @@ pub fn set_panic_hook() {
     console_error_panic_hook::set_once();
 }
 
-pub mod console {
-    use wasm_bindgen::prelude::*;
-
-    #[wasm_bindgen]
-    extern "C" {
-        #[wasm_bindgen(js_namespace = console)]
-        pub fn log(s: &str);
-    }
-}
-
 pub fn remove_alpha_channel(rgba: &[u8]) -> ImageResult<RgbImage> {
     let dyn_img = image::load_from_memory(rgba)?;
     let (height, width) = (dyn_img.height(), dyn_img.width());
