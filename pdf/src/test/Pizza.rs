@@ -3,6 +3,7 @@ use crate::gen_recipe_pdf_impl;
 use indexmap::IndexMap;
 use std::fs;
 use std::fs::File;
+use std::io::Write;
 use std::path::PathBuf;
 
 static PREPARATION: &str = r#"Mehl, Kristallsalz und Zucker in eine Rührschüssel geben.
@@ -135,7 +136,8 @@ fn gen_pizza_recipe_pdf() {
     fs::create_dir_all(&test_dir).unwrap();
 
     let file_path = test_dir.join("Pizza.pdf");
-    let file = File::create(file_path).unwrap();
+    let mut file = File::create(file_path).unwrap();
 
-    gen_recipe_pdf_impl(recipe, file).unwrap();
+    let buffer = gen_recipe_pdf_impl(recipe).unwrap();
+    file.write_all(buffer.as_slice()).unwrap();
 }

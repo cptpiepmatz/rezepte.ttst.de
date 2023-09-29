@@ -19,13 +19,12 @@ pub fn gen_recipe_pdf(ser_recipe: &str) -> Result<Vec<u8>, JsValue> {
 
     let recipe: Recipe = serde_json::from_str(ser_recipe).into_js()?;
 
-    let mut buffer: Vec<u8> = Vec::new();
-    gen_recipe_pdf_impl(recipe, &mut buffer).into_js()?;
+    let buffer = gen_recipe_pdf_impl(recipe).into_js()?;
     Ok(buffer)
 }
 
 // TODO: make the error type useful
-fn gen_recipe_pdf_impl(recipe: Recipe, w: impl Write) -> Result<(), genpdf::error::Error> {
+fn gen_recipe_pdf_impl(recipe: Recipe) -> Result<Vec<u8>, genpdf::error::Error> {
     // log!("{:#?}", &recipe);
     let Recipe {
         name,
@@ -46,7 +45,6 @@ fn gen_recipe_pdf_impl(recipe: Recipe, w: impl Write) -> Result<(), genpdf::erro
     let font_family = font::init_font_family();
     let mut doc = Document::new(font_family);
     doc.set_paper_size(PaperSize::A4);
-    doc.set_title(format!("{} | rezepte.ttst.de", &name));
     doc.set_font_size(14);
 
     let mut decorator = SimplePageDecorator::new();
@@ -58,5 +56,8 @@ fn gen_recipe_pdf_impl(recipe: Recipe, w: impl Write) -> Result<(), genpdf::erro
     doc.push(document::Preparation::new(preparation.clone()));
     doc.push(document::Footer::new(name.clone()));
 
-    doc.render(w)
+    let mut buffer: Vec<u8> = Vec::new();
+    doc.render(&mut buffer)?;
+
+    Ok(buffer)
 }
