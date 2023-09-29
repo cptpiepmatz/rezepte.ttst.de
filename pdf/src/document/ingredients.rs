@@ -1,26 +1,31 @@
-use genpdf::{Context, Element, RenderResult};
+use crate::ext::{Ingredient, INGREDIENTS_GENERAL};
+use crate::utils::FractionDisplay;
 use genpdf::elements::*;
 use genpdf::error::Error;
 use genpdf::render::Area;
 use genpdf::style::{Style, StyledString};
+use genpdf::{Context, Element, RenderResult};
 use indexmap::IndexMap;
-use crate::ext::{Ingredient, INGREDIENTS_GENERAL};
 use std::fmt::Write;
 use std::rc::Rc;
-use crate::utils::FractionDisplay;
 
 pub struct Ingredients {
-    map: Rc<IndexMap<String, Vec<Ingredient>>>
+    map: Rc<IndexMap<String, Vec<Ingredient>>>,
 }
 
 impl Ingredients {
     pub fn new(map: Rc<IndexMap<String, Vec<Ingredient>>>) -> Self {
-        Self {map}
+        Self { map }
     }
 }
 
 impl Element for Ingredients {
-    fn render(&mut self, context: &Context, mut area: Area<'_>, style: Style) -> Result<RenderResult, Error> {
+    fn render(
+        &mut self,
+        context: &Context,
+        mut area: Area<'_>,
+        style: Style,
+    ) -> Result<RenderResult, Error> {
         let title_style = Style::new().bold().with_font_size(style.font_size() + 3);
         let title_string = StyledString::new("Zutaten", title_style);
         let title_res = Text::new(title_string).render(context, area.clone(), style)?;
@@ -28,7 +33,11 @@ impl Element for Ingredients {
         area.add_offset((0, title_offset));
 
         let mut max_section_height = 0.into();
-        for mut section in self.map.iter().map(|(name, elements)| IngredientsSection {name, elements}) {
+        for mut section in self
+            .map
+            .iter()
+            .map(|(name, elements)| IngredientsSection { name, elements })
+        {
             let res = section.render(context, area.clone(), style)?;
             max_section_height = res.size.height.max(max_section_height);
             area.add_offset((res.size.width, 0));
@@ -45,11 +54,16 @@ impl Element for Ingredients {
 
 pub struct IngredientsSection<'i> {
     name: &'i str,
-    elements: &'i [Ingredient]
+    elements: &'i [Ingredient],
 }
 
 impl<'i> Element for IngredientsSection<'i> {
-    fn render(&mut self, context: &Context, mut area: Area<'_>, style: Style) -> Result<RenderResult, Error> {
+    fn render(
+        &mut self,
+        context: &Context,
+        mut area: Area<'_>,
+        style: Style,
+    ) -> Result<RenderResult, Error> {
         let mut title_height = 0.into();
         if self.name != INGREDIENTS_GENERAL {
             let title_style = Style::new().bold();
@@ -60,7 +74,12 @@ impl<'i> Element for IngredientsSection<'i> {
         }
 
         let mut list = UnorderedList::with_bullet("•");
-        for Ingredient {amount, unit, description} in self.elements {
+        for Ingredient {
+            amount,
+            unit,
+            description,
+        } in self.elements
+        {
             let mut line = String::new();
 
             if let Some(amount) = amount.as_ref() {

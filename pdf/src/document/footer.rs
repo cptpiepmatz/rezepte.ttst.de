@@ -1,32 +1,36 @@
-use std::io::{BufReader, Cursor};
-use std::ops::Deref;
-use std::rc::Rc;
-use fast_qr::convert::Builder;
+use crate::utils;
 use fast_qr::convert::image::ImageBuilder;
+use fast_qr::convert::Builder;
 use fast_qr::QRBuilder;
-use genpdf::{Alignment, Context, Element, RenderResult};
-use genpdf::elements::{Paragraph, Image};
+use genpdf::elements::Image;
 use genpdf::error::Error;
 use genpdf::render::Area;
-use genpdf::style::{Style, StyledString};
-use image::{DynamicImage, GenericImageView};
-use percent_encoding::{NON_ALPHANUMERIC, utf8_percent_encode};
-use crate::utils;
+use genpdf::style::Style;
+use genpdf::{Alignment, Context, Element, RenderResult};
+use image::DynamicImage;
+use percent_encoding::{utf8_percent_encode, NON_ALPHANUMERIC};
+use std::ops::Deref;
+use std::rc::Rc;
 
 static LOGO_PNG: &[u8] = include_bytes!("../../../logo.png");
 
 pub struct Footer {
-    name: Rc<String>
+    name: Rc<String>,
 }
 
 impl Footer {
     pub fn new(name: Rc<String>) -> Self {
-        Self {name}
+        Self { name }
     }
 }
 
 impl Element for Footer {
-    fn render(&mut self, context: &Context, area: Area<'_>, style: Style) -> Result<RenderResult, Error> {
+    fn render(
+        &mut self,
+        context: &Context,
+        area: Area<'_>,
+        style: Style,
+    ) -> Result<RenderResult, Error> {
         let encoded_name = utf8_percent_encode(self.name.deref(), NON_ALPHANUMERIC);
         let link = format!("https://rezepte.ttst.de/?recipe={encoded_name}");
 
@@ -39,7 +43,11 @@ impl Element for Footer {
         let _ = logo.render(context, logo_area, style);
 
         let qr = QRBuilder::new(link).build().expect("valid qr code");
-        let qr_img = ImageBuilder::default().background_color("#FFFFFF").fit_height(250).to_bytes(&qr).expect("rendering should work");
+        let qr_img = ImageBuilder::default()
+            .background_color("#FFFFFF")
+            .fit_height(250)
+            .to_bytes(&qr)
+            .expect("rendering should work");
         let qr_img = utils::remove_alpha_channel(&qr_img).expect("is valid RGBA PNG");
         let qr_img = DynamicImage::ImageRgb8(qr_img);
         let mut qr_img = Image::from_dynamic_image(qr_img).expect("is image");

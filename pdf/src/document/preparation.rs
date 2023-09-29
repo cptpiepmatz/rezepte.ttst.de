@@ -1,25 +1,30 @@
-use std::mem;
-use std::ops::Deref;
-use std::rc::Rc;
-use genpdf::{Context, Element, Margins, RenderResult};
 use genpdf::elements::*;
 use genpdf::error::Error;
 use genpdf::render::Area;
 use genpdf::style::{Style, StyledString};
-use pulldown_cmark::{Event, Parser, Tag};
+use genpdf::{Context, Element, Margins, RenderResult};
+use pulldown_cmark::Parser;
+use std::mem;
+use std::ops::Deref;
+use std::rc::Rc;
 
 pub struct Preparation {
-    content: Rc<String>
+    content: Rc<String>,
 }
 
 impl Preparation {
     pub fn new(content: Rc<String>) -> Self {
-        Self {content}
+        Self { content }
     }
 }
 
 impl Element for Preparation {
-    fn render(&mut self, context: &Context, mut area: Area<'_>, style: Style) -> Result<RenderResult, Error> {
+    fn render(
+        &mut self,
+        context: &Context,
+        mut area: Area<'_>,
+        style: Style,
+    ) -> Result<RenderResult, Error> {
         let title_style = Style::new().bold().with_font_size(style.font_size() + 3);
         let title_string = StyledString::new("Zubereitung", title_style);
         let title_res = Text::new(title_string).render(context, area.clone(), style)?;
@@ -40,7 +45,9 @@ impl Element for Preparation {
                 E::Start(T::Heading(..)) => heading = true,
                 E::End(T::Heading(..)) => heading = false,
 
-                E::HardBreak | E::Start(T::Image(..)) => paragraphs.push(PaddedElement::new(mem::take(&mut paragraph), margins)),
+                E::HardBreak | E::Start(T::Image(..)) => {
+                    paragraphs.push(PaddedElement::new(mem::take(&mut paragraph), margins))
+                }
                 E::End(T::Paragraph) => {
                     paragraphs.push(PaddedElement::new(mem::take(&mut paragraph), margins));
                     paragraphs.push(Break::new(1));
@@ -53,13 +60,13 @@ impl Element for Preparation {
                         (false, false, _) => Style::default(),
                         (false, true, _) => Style::default().italic(),
                         (true, false, _) => Style::default().bold(),
-                        (true, true, _) => Style::default().bold().italic()
+                        (true, true, _) => Style::default().bold().italic(),
                     };
 
                     paragraph.push(StyledString::new(text.to_string(), style));
                     paragraph.push(" ");
-                },
-                _ => ()
+                }
+                _ => (),
             }
         }
 

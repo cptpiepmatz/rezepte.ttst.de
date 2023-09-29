@@ -1,14 +1,14 @@
 use crate::ext::Recipe;
+use genpdf::{Document, PaperSize, SimplePageDecorator};
 use std::io::Write;
 use std::rc::Rc;
-use genpdf::{Document, PaperSize, SimplePageDecorator};
 use utils::ErrToJS;
 use wasm_bindgen::prelude::*;
 
-mod ext;
-mod utils;
-mod font;
 mod document;
+mod ext;
+mod font;
+mod utils;
 
 #[cfg(test)]
 mod test;

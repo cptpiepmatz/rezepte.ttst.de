@@ -1,10 +1,10 @@
-use std::ops::Deref;
-use std::rc::Rc;
-use genpdf::{Alignment, Context, Element, RenderResult};
 use genpdf::elements::*;
 use genpdf::error::Error;
 use genpdf::render::Area;
 use genpdf::style::{Style, StyledString};
+use genpdf::{Alignment, Context, Element, RenderResult};
+use std::ops::Deref;
+use std::rc::Rc;
 
 mod ingredients;
 pub use ingredients::*;
@@ -16,17 +16,22 @@ mod footer;
 pub use footer::*;
 
 pub struct Title {
-    title: Rc<String>
+    title: Rc<String>,
 }
 
 impl Title {
     pub fn new(title: Rc<String>) -> Self {
-        Self {title}
+        Self { title }
     }
 }
 
 impl Element for Title {
-    fn render(&mut self, context: &Context, area: Area<'_>, style: Style) -> Result<RenderResult, Error> {
+    fn render(
+        &mut self,
+        context: &Context,
+        area: Area<'_>,
+        _style: Style,
+    ) -> Result<RenderResult, Error> {
         let mut style = Style::new().bold();
         style.set_font_size(style.font_size() + 12);
         let title = StyledString::new(self.title.deref(), style);

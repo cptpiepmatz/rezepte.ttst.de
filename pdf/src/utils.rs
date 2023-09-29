@@ -1,7 +1,7 @@
 use std::fmt;
 use std::fmt::{Display, Formatter};
-use genpdf::Mm;
-use image::{GenericImageView, ImageFormat, ImageResult, Rgb, RgbImage};
+
+use image::{GenericImageView, ImageResult, Rgb, RgbImage};
 use wasm_bindgen::JsValue;
 
 pub trait ErrToJS {
@@ -45,17 +45,6 @@ pub mod console {
     }
 }
 
-macro_rules! log {
-    ($($arg:tt)*) => {{
-        let formatted = format!($($arg)*);
-        println!("{}", formatted);
-        #[cfg(target_arch = "wasm32")]
-        $crate::utils::console::log(&formatted);
-    }};
-}
-
-pub(crate) use log;
-
 pub fn remove_alpha_channel(rgba: &[u8]) -> ImageResult<RgbImage> {
     let dyn_img = image::load_from_memory(rgba)?;
     let (height, width) = (dyn_img.height(), dyn_img.width());
@@ -68,7 +57,7 @@ pub fn remove_alpha_channel(rgba: &[u8]) -> ImageResult<RgbImage> {
                 rgba_pixel[0] as f32,
                 rgba_pixel[1] as f32,
                 rgba_pixel[2] as f32,
-                rgba_pixel[3] as f32
+                rgba_pixel[3] as f32,
             );
             let w = 255.0;
             let r = r * (a / 255.0) + w * (1.0 - a / 255.0);
@@ -84,7 +73,10 @@ pub fn remove_alpha_channel(rgba: &[u8]) -> ImageResult<RgbImage> {
 
 pub struct FractionDisplay(f64);
 
-impl<F> From<F> for FractionDisplay where F: Into<f64> {
+impl<F> From<F> for FractionDisplay
+where
+    F: Into<f64>,
+{
     fn from(value: F) -> Self {
         Self(value.into())
     }
@@ -117,7 +109,7 @@ impl Display for FractionDisplay {
 
         match frac_display {
             Some(frac_display) => write!(f, "{int}{frac_display}"),
-            None => write!(f, "{}", format!("{num:.1}").replace('.', ","))
+            None => write!(f, "{}", format!("{num:.1}").replace('.', ",")),
         }
     }
 }
