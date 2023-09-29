@@ -52,5 +52,8 @@ export default class SideCard extends Component<{recipe: RecipeData}> {
 
   genPDF() {
     let buffer = gen_recipe_pdf(JSON.stringify(this.props.recipe));
+    let blob = new Blob([buffer], {type: "application/pdf"});
+    let url = URL.createObjectURL(blob);
+    window.open(url);
   }
 }
