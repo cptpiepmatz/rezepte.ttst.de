@@ -18,8 +18,8 @@ pub fn gen_recipe_pdf(ser_recipe: &str) -> Result<Vec<u8>, JsValue> {
     utils::set_panic_hook();
 
     let recipe: Recipe = serde_json::from_str(ser_recipe).into_js()?;
-    let mut buffer: Vec<u8> = Vec::new();
 
+    let mut buffer: Vec<u8> = Vec::new();
     gen_recipe_pdf_impl(recipe, &mut buffer).into_js()?;
     Ok(buffer)
 }
