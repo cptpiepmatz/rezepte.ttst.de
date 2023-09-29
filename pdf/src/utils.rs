@@ -97,9 +97,10 @@ impl Display for FractionDisplay {
             _ => None,
         };
 
-        match frac_display {
-            Some(frac_display) => write!(f, "{int}{frac_display}"),
-            None => write!(f, "{}", format!("{num:.1}").replace('.', ",")),
+        match (int, frac_display) {
+            (0, Some(frac_display)) => write!(f, "{frac_display}"),
+            (_, Some(frac_display)) => write!(f, "{int}{frac_display}"),
+            (_, None) => write!(f, "{}", format!("{num:.1}").replace('.', ",")),
         }
     }
 }
