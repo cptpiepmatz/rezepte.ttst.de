@@ -18,9 +18,11 @@ serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 indexmap = { version = "2", features = ["serde"] }
 
-genpdf = "0.2"
-markdown = "0.3"
-fast_qr = "0.10"
+genpdf = { version = "0.2", features = ["images"] }
+pulldown-cmark = "0.9"
+percent-encoding = "2"
+fast_qr = { version = "0.10", features = ["image"] }
+image = "0.23"
 
 # The `console_error_panic_hook` crate provides better debugging of panics by
 # logging them with `console.error`. This is great for development, but requires

@@ -35,7 +35,6 @@ Die Pizza bei 250°C Ober- und Unterhitze für ca. 10 Minuten in den
 Da wir selten mit alle Mann Pizza essen, ist der Teig etwas viel.
 Ich rolle die Pizzen auf die Größe eines flachen Tellers aus, packe sie darauf,
 verteile die Soße und friere sie dann so ein.
-
 Nach 2 – 3 Stunden nehme ich die Pizzen wieder raus, verpacke sie in
 Gefrierbeutel und stelle sie mit dem Teller wieder in die Truhe.
 Am nächsten Morgen kann man die Teller wegnehmen, da passiert mit dem Boden

@@ -1,6 +1,8 @@
 use indexmap::IndexMap;
 use serde::Deserialize;
 
+pub const INGREDIENTS_GENERAL: &str = "_";
+
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Recipe {

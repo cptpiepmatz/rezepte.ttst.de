@@ -1,6 +1,7 @@
 import {Component} from "react";
 
 import RecipeData from "../Recipe"
+import {gen_recipe_pdf} from "recipe-pdf";
 
 export default class SideCard extends Component<{recipe: RecipeData}> {
   render() {
@@ -20,6 +21,13 @@ export default class SideCard extends Component<{recipe: RecipeData}> {
             <figure className={"image"}>
               <img src={this.props.recipe.resultImage} alt=""/>
             </figure>
+          </div>
+        }
+        {
+          <div className={"card-content p-0"}>
+            <a onClick={() => this.genPDF()}>
+              <p className={"p-3"}>📝 PDF generieren</p>
+            </a>
           </div>
         }
         {
@@ -43,6 +51,6 @@ export default class SideCard extends Component<{recipe: RecipeData}> {
   }
 
   genPDF() {
-    console.log("yay!");
+    let buffer = gen_recipe_pdf(JSON.stringify(this.props.recipe));
   }
 }
