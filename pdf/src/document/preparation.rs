@@ -25,6 +25,8 @@ impl Element for Preparation {
         mut area: Area<'_>,
         style: Style,
     ) -> Result<RenderResult, Error> {
+        // TODO: scale down large recipes
+
         let title_style = Style::new().bold().with_font_size(style.font_size() + 3);
         let title_string = StyledString::new("Zubereitung", title_style);
         let title_res = Text::new(title_string).render(context, area.clone(), style)?;
@@ -38,15 +40,20 @@ impl Element for Preparation {
         for event in parser {
             use pulldown_cmark::{Event as E, Tag as T};
             match event {
+                // TODO: handle image alt texts
+
                 E::Start(T::Strong) => strong = true,
                 E::End(T::Strong) => strong = false,
                 E::Start(T::Emphasis) => emphasis = true,
                 E::End(T::Emphasis) => emphasis = false,
                 E::Start(T::Heading(..)) => heading = true,
-                E::End(T::Heading(..)) => heading = false,
+                E::End(T::Heading(..)) => {
+                    heading = false;
+                    paragraphs.push(mem::take(&mut paragraph));
+                },
 
                 E::HardBreak | E::Start(T::Image(..)) => {
-                    paragraphs.push(PaddedElement::new(mem::take(&mut paragraph), margins))
+                    paragraphs.push(PaddedElement::new(mem::take(&mut paragraph), margins));
                 }
                 E::End(T::Paragraph) => {
                     paragraphs.push(PaddedElement::new(mem::take(&mut paragraph), margins));
@@ -56,16 +63,16 @@ impl Element for Preparation {
                 E::Text(text) => {
                     let style = match (strong, emphasis, heading) {
                         // TODO: do more with a heading
-                        (_, _, true) => Style::default().bold().italic(),
+                        (_, _, true) => Style::default().bold().with_font_size(style.font_size() + 1),
                         (false, false, _) => Style::default(),
                         (false, true, _) => Style::default().italic(),
                         (true, false, _) => Style::default().bold(),
                         (true, true, _) => Style::default().bold().italic(),
                     };
 
-                    paragraph.push(StyledString::new(text.to_string(), style));
-                    paragraph.push(" ");
+                    paragraph.push(StyledString::new(format!("{} ", text.trim()), style));
                 }
+
                 _ => (),
             }
         }
