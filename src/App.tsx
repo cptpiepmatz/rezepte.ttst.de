@@ -9,6 +9,8 @@ import NotFound from "./error/NotFound";
 
 const STORAGE_KEY = "recipes_v2";
 
+let RECIPE_LIST: [string, number][] | undefined = undefined;
+
 interface AppProps {
   queriedRecipe?: string,
   recipe?: RecipeData,
@@ -28,8 +30,7 @@ export default class App extends Component<any, AppProps> {
     super(props);
     let queriedRecipe = this.props.search?.match(/recipe=([^&]*)/)?.[1];
 
-    let storageRecipeList = window.localStorage.getItem(STORAGE_KEY);
-    this.recipeList = storageRecipeList ? JSON.parse(storageRecipeList) : undefined;
+    this.recipeList = RECIPE_LIST;
     let recipes: string[] | undefined;
     if (this.recipeList) {
       recipes = Array.from(this.recipeList.map(([name, timestamp]) => name));
@@ -56,7 +57,7 @@ export default class App extends Component<any, AppProps> {
   async componentDidMount() {
     if (!this.recipeList) {
       this.recipeList = await this.fetchRecipeList();
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(this.recipeList));
+      RECIPE_LIST = this.recipeList;
     }
 
     let recipe = await this.fetchRecipe(Object.fromEntries(this.recipeList));
