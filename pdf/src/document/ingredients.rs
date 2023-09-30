@@ -33,14 +33,35 @@ impl Element for Ingredients {
         area.add_offset((0, title_offset));
 
         let mut max_section_height = 0.into();
+        let mut process_section = |section: &mut IngredientsSection| -> Result<_, _> {
+            let res = section.render(context, area.clone(), style)?;
+            max_section_height = res.size.height.max(max_section_height);
+            area.add_offset((res.size.width, 0));
+            Ok(())
+        };
+
         for mut section in self
             .map
             .iter()
             .map(|(name, elements)| IngredientsSection { name, elements })
         {
-            let res = section.render(context, area.clone(), style)?;
-            max_section_height = res.size.height.max(max_section_height);
-            area.add_offset((res.size.width, 0));
+            if section.elements.len() > 10 {
+                let split = section.elements.len() / 2;
+                let first = &section.elements[0..=split];
+                let second = &section.elements[split+1..];
+
+                for elements in [first, second] {
+                    let mut section = IngredientsSection {
+                        name: section.name,
+                        elements
+                    };
+                    process_section(&mut section)?;
+                }
+
+                continue;
+            }
+
+            process_section(&mut section)?;
         }
 
         let offset = title_offset + max_section_height + 6.into();
