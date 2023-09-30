@@ -48,12 +48,12 @@ impl Element for Ingredients {
             if section.elements.len() > 10 {
                 let split = section.elements.len() / 2;
                 let first = &section.elements[0..=split];
-                let second = &section.elements[split+1..];
+                let second = &section.elements[split + 1..];
 
                 for elements in [first, second] {
                     let mut section = IngredientsSection {
                         name: section.name,
-                        elements
+                        elements,
                     };
                     process_section(&mut section)?;
                 }

@@ -49,7 +49,7 @@ impl Element for Preparation {
                 E::End(T::Heading(..)) => {
                     heading = false;
                     paragraphs.push(mem::take(&mut paragraph));
-                },
+                }
 
                 E::Start(T::Image(..)) => {
                     paragraphs.push(PaddedElement::new(mem::take(&mut paragraph), margins));
@@ -71,7 +71,9 @@ impl Element for Preparation {
                 E::Text(text) => {
                     let style = match (strong, emphasis, heading) {
                         // TODO: do more with a heading
-                        (_, _, true) => Style::default().bold().with_font_size(style.font_size() + 1),
+                        (_, _, true) => Style::default()
+                            .bold()
+                            .with_font_size(style.font_size() + 1),
                         (false, false, _) => Style::default(),
                         (false, true, _) => Style::default().italic(),
                         (true, false, _) => Style::default().bold(),

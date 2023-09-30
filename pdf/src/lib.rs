@@ -1,6 +1,6 @@
 use crate::ext::Recipe;
 use genpdf::{Document, PaperSize, SimplePageDecorator};
-use std::io::Write;
+
 use std::rc::Rc;
 use utils::ErrToJS;
 use wasm_bindgen::prelude::*;
