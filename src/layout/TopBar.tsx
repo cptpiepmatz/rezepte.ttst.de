@@ -17,7 +17,11 @@ export default class TopBar extends Component<any, {hideNav: boolean}> {
       <div className={"navbar is-justify-content-center has-background-primary"}>
         <div className={"navbar-brand"}>
           <Link className={"navbar-item"} to="/">
-            <img src={logo} alt="logo" style={{maxHeight: "3rem"}}/>
+            <img
+                src={logo}
+                alt="logo"
+                style={{maxHeight: "3rem", height: "3rem"}}
+            />
           </Link>
         </div>
         <div
