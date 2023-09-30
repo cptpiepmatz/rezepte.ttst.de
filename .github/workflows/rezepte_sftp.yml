@@ -1,0 +1,27 @@
+name: Upload _REZEPTE_ to SFTP
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '_REZEPTE_/**'
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: SFTP Upload
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SFTP_HOST }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          port: ${{ secrets.SFTP_PORT }}
+          source: "_REZEPTE_/*"
+          target: "/_REZEPTE_"
+          rm: true # This will remove the files before uploading
