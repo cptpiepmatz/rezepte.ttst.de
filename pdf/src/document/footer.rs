@@ -37,7 +37,7 @@ impl Element for Footer {
         let logo = utils::remove_alpha_channel(LOGO_PNG).expect("is valid RGBA PNG");
         let logo = DynamicImage::ImageRgb8(logo);
         let mut logo = Image::from_dynamic_image(logo).expect("is image");
-        logo.set_alignment(Alignment::Right);
+        logo.set_alignment(Alignment::Left);
         let mut logo_area = area.clone();
         logo_area.add_offset((0, area.size().height - 19.into()));
         let _ = logo.render(context, logo_area, style);
@@ -51,7 +51,7 @@ impl Element for Footer {
         let qr_img = utils::remove_alpha_channel(&qr_img).expect("is valid RGBA PNG");
         let qr_img = DynamicImage::ImageRgb8(qr_img);
         let mut qr_img = Image::from_dynamic_image(qr_img).expect("is image");
-        qr_img.set_alignment(Alignment::Left);
+        qr_img.set_alignment(Alignment::Right);
         let mut qr_area = area.clone();
         qr_area.add_offset((0, area.size().height - 20.into()));
         let _ = qr_img.render(context, qr_area, style);
