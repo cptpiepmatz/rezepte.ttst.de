@@ -25,7 +25,7 @@ impl Element for Preparation {
         mut area: Area<'_>,
         style: Style,
     ) -> Result<RenderResult, Error> {
-        // TODO: scale down large recipes
+        // TODO: scale down large recipes if needed
 
         let title_style = Style::new().bold().with_font_size(style.font_size() + 3);
         let title_string = StyledString::new("Zubereitung", title_style);
@@ -36,12 +36,11 @@ impl Element for Preparation {
         let mut paragraphs = LinearLayout::vertical();
         let mut paragraph = Paragraph::default();
         let (mut strong, mut emphasis, mut heading) = (false, false, false);
+        let mut is_image = false;
         let parser = Parser::new(self.content.deref());
         for event in parser {
             use pulldown_cmark::{Event as E, Tag as T};
             match event {
-                // TODO: handle image alt texts
-
                 E::Start(T::Strong) => strong = true,
                 E::End(T::Strong) => strong = false,
                 E::Start(T::Emphasis) => emphasis = true,
@@ -52,7 +51,15 @@ impl Element for Preparation {
                     paragraphs.push(mem::take(&mut paragraph));
                 },
 
-                E::HardBreak | E::Start(T::Image(..)) => {
+                E::Start(T::Image(..)) => {
+                    paragraphs.push(PaddedElement::new(mem::take(&mut paragraph), margins));
+                    is_image = true;
+                }
+                E::End(T::Image(..)) => {
+                    is_image = false;
+                }
+
+                E::HardBreak => {
                     paragraphs.push(PaddedElement::new(mem::take(&mut paragraph), margins));
                 }
                 E::End(T::Paragraph) => {
@@ -60,6 +67,7 @@ impl Element for Preparation {
                     paragraphs.push(Break::new(1));
                 }
 
+                E::Text(_) if is_image => (),
                 E::Text(text) => {
                     let style = match (strong, emphasis, heading) {
                         // TODO: do more with a heading
