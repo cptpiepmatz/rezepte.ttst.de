@@ -5,14 +5,6 @@ import {gen_recipe_pdf} from "recipe-pdf";
 
 export default class SideCard extends Component<{recipe: RecipeData}> {
   render() {
-    if (!(
-        this.props.recipe.resultImage ||
-        this.props.recipe.pdf ||
-        this.props.recipe.inspiration
-    )) {
-      return null;
-    }
-
     return <>
       <div className={"card"}>
         {
@@ -26,14 +18,6 @@ export default class SideCard extends Component<{recipe: RecipeData}> {
         {
           <div className={"card-content p-0"}>
             <a onClick={() => this.genPDF()}>
-              <p className={"p-3"}>📝 PDF generieren</p>
-            </a>
-          </div>
-        }
-        {
-          this.props.recipe.pdf &&
-          <div className={"card-content p-0"}>
-            <a href={this.props.recipe.pdf} target={"_blank"}>
               <p className={"p-3"}>🖨️ PDF zum ausdrucken</p>
             </a>
           </div>
