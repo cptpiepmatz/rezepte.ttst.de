@@ -1,23 +1,18 @@
-import {Component} from "react";
+import {Component, ReactElement} from "react";
 
-import RecipeOptions from "../RecipeOptions";
+import RecipeData from "../Recipe";
 
-export default class Ingredients extends Component<RecipeOptions> {
-
-  constructor(props: RecipeOptions) {
-    super(props);
-  }
-
+export default class Ingredients extends Component<{recipe: RecipeData}> {
   render() {
-    if (!this.props.ingredients) return null;
+    if (!this.props.recipe.ingredients) return null;
 
-    let gridElements: JSX.Element[] = [];
+    let gridElements: ReactElement[] = [];
     let rowCounter: number = 1;
     function rowClass() {
       if (rowCounter % 2 === 0) return "row-even";
       return "row-odd";
     }
-    for (let [label, ingredients] of Object.entries(this.props.ingredients)) {
+    for (let [label, ingredients] of Object.entries(this.props.recipe.ingredients)) {
       if (label !== "_") gridElements.push(
         <div
           className={rowClass()}

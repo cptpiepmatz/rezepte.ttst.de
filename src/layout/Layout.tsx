@@ -1,11 +1,15 @@
-import {Component} from "react";
+import {Component, ReactNode} from "react";
 
 import TopBar from "./TopBar";
 import Footer from "./Footer";
 import NavMenu from "./NavMenu";
 import Location from "../Location";
 
-export default class Layout extends Component {
+interface LayoutProps {
+  children: ReactNode
+}
+
+export default class Layout extends Component<LayoutProps> {
   render() {
     return <>
       <div className={"hero is-fullheight"}>

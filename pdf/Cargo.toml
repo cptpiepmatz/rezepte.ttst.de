@@ -1,0 +1,35 @@
+[package]
+name = "recipe-pdf"
+version = "0.1.0"
+authors = ["Piepmatz <3590829+cptpiepmatz@users.noreply.github.com>"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+default = ["console_error_panic_hook"]
+
+[dependencies]
+# newer versions fail on stdweb
+wasm-bindgen = "=0.2.84"
+
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+indexmap = { version = "2", features = ["serde"] }
+
+genpdf = { version = "0.2", features = ["images"] }
+pulldown-cmark = "0.9"
+percent-encoding = "2"
+fast_qr = { version = "0.10", features = ["image"] }
+image = "0.23"
+
+# The `console_error_panic_hook` crate provides better debugging of panics by
+# logging them with `console.error`. This is great for development, but requires
+# all the `std::fmt` and `std::panicking` infrastructure, so isn't great for
+# code size when deploying.
+console_error_panic_hook = { version = "0.1", optional = true }
+
+[profile.release]
+# Tell `rustc` to optimize for small code size.
+opt-level = "s"
