@@ -19,9 +19,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Build the app
-        run: |
-          docker build . --target build -v $(pwd)/build:/build
+      - name: Build Docker Image
+        run: docker build --target build -t rezepte.ttst.de/build .
+
+      - name: Build App
+        run: docker run -v ${{ github.workspace }}/build:/app/build rezepte.ttst.de/build
 
       - name: Upload to SFTP
         uses: garygrossgarten/github-action-scp@release
