@@ -9,6 +9,7 @@ on:
       - 'public/**'
       - 'src/**'
       - 'package.json'
+  workflow_dispatch:
 
 jobs:
   build_and_upload:
