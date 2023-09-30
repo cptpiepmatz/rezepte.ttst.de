@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - '_REZEPTE/**'
-  workflow_dispatch: 
+  workflow_dispatch:
 
 jobs:
   upload:
@@ -17,11 +17,11 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Upload to SFTP
-        uses: garygrossgarten/github-action-sftp@v1.1.1
+        uses: garygrossgarten/github-action-scp@release
         with:
           host: ${{ secrets.SFTP_HOST }}
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
-          local: '_REZEPTE/'
-          remote: '/path/on/server/'
-          args: '--delete'
+          local: '_REZEPTE_'
+          remote: '_REZEPTE_'
+          rmRemote: true
