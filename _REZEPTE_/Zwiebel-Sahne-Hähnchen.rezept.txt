@@ -1,6 +1,9 @@
 [Resultatbild]
 Resultat.jpg
 
+[PDF]
+Zwiebel-Sahne-Hähnchen.pdf
+
 [Inspiration]
 https://www.chefkoch.de/rezepte/635951164297521/Zwiebel-Sahne-Haehnchen.html
 
