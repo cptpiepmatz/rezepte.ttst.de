@@ -26,3 +26,10 @@ Thumbs.db
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# rust
+/pdf/target
+**/*.rs.bk
+/pdf/Cargo.lock
+/pdf/pkg
+/pdf/wasm-pack.log
