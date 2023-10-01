@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - '_REZEPTE/**'
+      - '_REZEPTE_/**'
   workflow_dispatch:
 
 jobs:
