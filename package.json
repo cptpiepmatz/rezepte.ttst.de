@@ -9,7 +9,8 @@
     "prebuild": "cd pdf && wasm-pack build",
     "build": "craco build",
     "postbuild": "cp -r _REZEPTE_ build/",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "edit:build": "cross-env EDIT_MODE=1 craco build"
   },
   "dependencies": {
     "@creativebulma/bulma-divider": "^1.1.0",
@@ -27,9 +28,11 @@
     "@types/node": "^20.6.5",
     "@types/react": "^18.2.22",
     "@types/react-dom": "^18.2.7",
+    "clean-webpack-plugin": "^4.0.0",
     "concurrently": "^8.2.1",
     "craco": "^0.0.3",
     "craco-wasm": "^0.0.1",
+    "cross-env": "^7.0.3",
     "sass": "^1.68.0",
     "typescript": "<5.0.0"
   },
