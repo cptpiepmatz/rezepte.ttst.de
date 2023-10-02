@@ -38,8 +38,9 @@ async fn main() {
         .map(|| warp::redirect(warp::http::Uri::from_static("/index.html")));
 
     // Route for "/name"
+    let recipe_name_clone = recipe_name.clone();
     let name_route = warp::path("name")
-        .map(move || recipe_name.deref().clone());
+        .map(move || recipe_name_clone.deref().clone());
 
     // Route for "/recipe"
     let recipe_route = warp::path("recipe")
@@ -85,5 +86,6 @@ async fn main() {
     // Combine all routes
     let routes = index.or(name_route).or(recipe_route).or(images).or(static_files);
 
+    println!("Serving {:?} on {}.", recipe_name.deref(), "0.0.0.0:3000");
     warp::serve(routes).run(([0, 0, 0, 0], 3000)).await;
 }
