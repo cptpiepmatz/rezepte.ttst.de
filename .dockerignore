@@ -36,3 +36,5 @@ yarn-error.log*
 /pdf/Cargo.lock
 /pdf/pkg
 /pdf/wasm-pack.log
+
+edit.*
