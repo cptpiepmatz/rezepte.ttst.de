@@ -6,7 +6,7 @@ https://www.chefkoch.de/rezepte/2737891426025016/Gyros-Nudelauflauf-in-Metaxasos
 
 [Zutaten]
 500;g;Nudeln
-500;g;Gyrosfleisch, Hähnchen
+500;g;Gyrosfleisch (Hähnchen)
 1;;Parika
 2;;Zwiebeln
 125;g;geriebener Käse
