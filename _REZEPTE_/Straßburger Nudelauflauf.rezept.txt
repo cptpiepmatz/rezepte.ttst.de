@@ -1,0 +1,40 @@
+[Zutaten]
+500;g;Nudeln
+500;g;Hackfleisch
+0.25;L;Rotwein
+1;Päckchen;passierte Tomaten
+0.25;Tube;Tomatenmark
+2;Becher;Sahne
+;;Reibekäse
+2;;große Zwiebeln
+;;Thymian
+;;Cayennepfeffer
+;;Salz
+
+[Resultatbild]
+auflauf.jpg
+
+[Inspiration]
+https://www.chefkoch.de/rezepte/701911172819472/Strassburger-Auflauf.html
+
+[Zubereitung]
+Zunächst die Zwiebeln kleinschneiden und direkt anbraten.
+Sobald die Zwiebeln glasig sind, das Hackfleisch zur Pfanne hinzufügen und
+leicht salzen.
+Weiterbraten, bis das Hackfleisch größtenteils durch ist, und anschließend den
+Rotwein hinzugeben.
+Den Rotwein kurz abkochen lassen, danach sowohl Tomatenmark als auch passierte
+Tomaten unterrühren.
+Dieser Mischung Zeit geben, um etwas einzukochen.
+![](sauce.jpg)
+Bei einer reduzierten Flüssigkeit die Sahne beifügen.
+Während die Mischung weiter einkocht, die Nudeln in einem separaten Topf kochen.
+Nach Erreichen der gewünschten Konsistenz der Soße, diese mit den angegebenen
+Gewürzen abschmecken.
+
+Die fertige Soße zu den gekochten Nudeln in den Topf geben und gründlich
+vermengen.
+Das kombinierte Gemisch in eine Auflaufform umfüllen, mit Käse bestreuen und im
+Backofen bei 200 °C Umluft für 5-10 Minuten backen, bis der Käse geschmolzen
+ist.
+![geschnittenes Gemüse](auflauf.jpg)
