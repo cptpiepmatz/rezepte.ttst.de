@@ -11,6 +11,7 @@ Gyrossuppe.pdf
 500;g;TK-Erbsen
 1;gr. Glas;Homann Paprika Sauce Balkan-Art (früher Zigeunersoße)
 1;kl. Flasche;Chilisoße
+;Brötchen;als Beilage
 
 [Zubereitung]
 Das Gyrosfleisch und die Zwiebelsuppe im Wasser aufkochen und das Fleisch darin
