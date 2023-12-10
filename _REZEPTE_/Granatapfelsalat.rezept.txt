@@ -1,0 +1,20 @@
+[Zutaten]
+Fruchtig
+350;g;Feldsalat
+1;;Orange
+1/2;;Granatapfel
+1;Pck.;Mozzarella
+3;EL;Balsamico
+3;EL;Olivenöl
+1;TL;Senf
+
+Mit Walnüssen
+150;g;Feldsalat
+50;g;Walnüsse
+1;;Granatapfel
+2;EL;Olivenöl
+1;EL;Balsamico
+1;EL;Senf
+1;EL;Honig
+;;Salz
+
