@@ -28,7 +28,13 @@ impl Element for Preparation {
         // TODO: scale down large recipes if needed
 
         let title_style = Style::new().bold().with_font_size(style.font_size() + 3);
-        let title_string = StyledString::new("Zubereitung", title_style);
+        let title_string = StyledString::new(
+            match self.content.is_empty() {
+                false => "Zubereitung",
+                true => "",
+            },
+            title_style,
+        );
         let title_res = Text::new(title_string).render(context, area.clone(), style)?;
         area.add_offset((0, title_res.size.height + 2.into()));
 
