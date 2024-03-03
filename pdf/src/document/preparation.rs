@@ -45,30 +45,30 @@ impl Element for Preparation {
         let mut is_image = false;
         let parser = Parser::new(self.content.deref());
         for event in parser {
-            use pulldown_cmark::{Event as E, Tag as T};
+            use pulldown_cmark::{Event as E, Tag as T, TagEnd as TE};
             match event {
                 E::Start(T::Strong) => strong = true,
-                E::End(T::Strong) => strong = false,
+                E::End(TE::Strong) => strong = false,
                 E::Start(T::Emphasis) => emphasis = true,
-                E::End(T::Emphasis) => emphasis = false,
-                E::Start(T::Heading(..)) => heading = true,
-                E::End(T::Heading(..)) => {
+                E::End(TE::Emphasis) => emphasis = false,
+                E::Start(T::Heading {..}) => heading = true,
+                E::End(TE::Heading {..}) => {
                     heading = false;
                     paragraphs.push(mem::take(&mut paragraph));
                 }
 
-                E::Start(T::Image(..)) => {
+                E::Start(T::Image {..}) => {
                     paragraphs.push(PaddedElement::new(mem::take(&mut paragraph), margins));
                     is_image = true;
                 }
-                E::End(T::Image(..)) => {
+                E::End(TE::Image {..}) => {
                     is_image = false;
                 }
 
                 E::HardBreak => {
                     paragraphs.push(PaddedElement::new(mem::take(&mut paragraph), margins));
                 }
-                E::End(T::Paragraph) => {
+                E::End(TE::Paragraph) => {
                     paragraphs.push(PaddedElement::new(mem::take(&mut paragraph), margins));
                     paragraphs.push(Break::new(1));
                 }
