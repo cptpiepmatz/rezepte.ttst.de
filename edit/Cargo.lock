@@ -247,6 +247,7 @@ dependencies = [
  "clap",
  "include_dir",
  "notify",
+ "percent-encoding",
  "tokio",
  "warp",
 ]
