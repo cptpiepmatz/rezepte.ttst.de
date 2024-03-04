@@ -1,6 +1,6 @@
 [package]
 name = "recipe-pdf"
-version = "1.2.0"
+version = "1.2.1"
 authors = ["Piepmatz <3590829+cptpiepmatz@users.noreply.github.com>"]
 edition = "2018"
 
