@@ -26,11 +26,11 @@ jobs:
         run: docker run -v ${{ github.workspace }}/build:/app/build rezepte.ttst.de/build
 
       - name: Upload to SFTP
-        uses: garygrossgarten/github-action-scp@release
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          host: ${{ secrets.SFTP_HOST }}
+          server: ${{ secrets.SFTP_HOST }}
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
-          local: 'build'
-          remote: '/'
-          rmRemote: true
+          local_path: 'build'
+          remote_path: '/'
+          delete_remote_files: true
