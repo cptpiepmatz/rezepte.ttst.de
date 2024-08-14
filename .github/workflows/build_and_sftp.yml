@@ -34,3 +34,4 @@ jobs:
           local_path: 'build'
           remote_path: '/'
           delete_remote_files: true
+          sftp_only: true

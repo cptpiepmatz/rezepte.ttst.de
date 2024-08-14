@@ -25,3 +25,4 @@ jobs:
           local_path: '_REZEPTE_'
           remote_path: '_REZEPTE_'
           delete_remote_files: true
+          sftp_only: true
