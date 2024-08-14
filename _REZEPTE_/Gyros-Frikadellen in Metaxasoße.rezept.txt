@@ -1,0 +1,55 @@
+[Resultatbild]
+result.jpg
+
+[Inspiration]
+https://www.kochbar.de/rezept/369806/Hacksteaks-in-Metaxasosse.html
+
+[Zutaten]
+Frikadellen
+500;g;Hackfleisch
+1;;Zwiebeln
+1;;Knoblauchzehe
+1;;Ei
+2;TL;Gyrosgewürz
+;;Salz
+;;Pfeffer
+;;kleine Prise Zucker
+Soße
+2;;Paprika
+2;;Zwiebel
+1;EL;Tomatenmark
+1;;Knoblauchzehe
+1;Becher;Sahne
+1;EL;Gemüsebrühe (Pulver)
+50;ml;Metaxa
+;;Reibekäse
+
+[Zubereitung]
+Zuerst das Gemüse in Stücke schneiden, die Paprika und ein Teil der Zwiebeln, 
+kann man auch erst später schneiden, wenn die Frikadellen gebraten werden.
+![gehacktes Gemüse](prep1.jpg)
+
+Für die Frikadellen dann das Fleisch mit gewürfelter Zwiebel, gehacktem 
+Knoblauch, dem Ei und Gewürzen vermengen.
+![Hackgemisch](prep2.jpg)
+Daraus dann Frikadellen formen und in der Pfanne mit Öl möglichst durchbraten, 
+später kommen die Frikadellen zwar noch in den Backofen, aber nicht für lange 
+Zeit.
+![rohe Frikadellen](prep3.jpg)
+![gebratene Frikadellen](prep4.jpg)
+
+Nachdem die Frikadellen durchgebraten sind, kommen diese raus und in die Pfanne 
+das Gemüse für die Soße.
+Dazu kommt das Tomatenmark und nach einer Weile der Schuss Metaxa und die Sahne.
+![Gemüse in Pfanne](prep5.jpg)
+![Soße](prep6.jpg)
+
+Während die Soße einkocht, kann Reis gekocht werden und ein Ofen vorgeheizt 
+werden auf ca. 200°C.
+Für 5 Minuten kommen die Frikadellen mit in die Soße zum Aufwärmen.
+![Frikadellen in Soße](prep7.jpg)
+
+Die Mischung kommt dann in eine Auflaufform, wird mit Käse überstreut und kommt 
+dann für 5 Minuten in den Ofen, damit der Käse gut zerläuft.
+Und das war es dann.
+![Auflauf fertig](done.jpg)
