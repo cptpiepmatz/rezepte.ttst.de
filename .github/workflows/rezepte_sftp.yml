@@ -17,12 +17,11 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Upload to SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        uses: wangyucode/sftp-upload-action@v2.0.2
         with:
-          server: ${{ secrets.SFTP_HOST }}
+          host: ${{ secrets.SFTP_HOST }}
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
-          local_path: '_REZEPTE_'
-          remote_path: '_REZEPTE_'
-          delete_remote_files: true
-          sftp_only: true
+          localDir: '_REZEPTE_'
+          remoteDir: '_REZEPTE_'
+          removeExtraFilesOnServer: true
