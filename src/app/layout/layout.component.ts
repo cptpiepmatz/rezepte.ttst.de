@@ -5,8 +5,13 @@ import { SidebarComponent } from "./sidebar/sidebar.component";
 import { GreeterComponent } from "../greeter/greeter.component";
 
 @Component({
-	selector: "layout",
-	imports: [HeaderComponent, SidebarComponent, FooterComponent, GreeterComponent],
-	templateUrl: "./layout.component.html",
+  selector: "layout",
+  imports: [
+    HeaderComponent,
+    SidebarComponent,
+    FooterComponent,
+    GreeterComponent,
+  ],
+  templateUrl: "./layout.component.html",
 })
 export class LayoutComponent {}

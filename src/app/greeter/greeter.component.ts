@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'greeter',
+  selector: "greeter",
   imports: [],
-  templateUrl: './greeter.component.html'
+  templateUrl: "./greeter.component.html",
 })
 export class GreeterComponent {
-
 }

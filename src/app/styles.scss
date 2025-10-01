@@ -1,6 +1,4 @@
-@use "bulma/sass" with (
-  $primary: #34ac46,
-);
+@use "bulma/sass" with ($primary: #34ac46);
 
 @media (prefers-color-scheme: dark) {
   :root {
