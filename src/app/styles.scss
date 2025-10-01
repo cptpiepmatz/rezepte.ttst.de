@@ -4,6 +4,10 @@
   :root {
     color-scheme: dark;
   }
+
+  .is-inverted-while-dark {
+    filter: invert(1);
+  }
 }
 
 .is-fullwidth {
