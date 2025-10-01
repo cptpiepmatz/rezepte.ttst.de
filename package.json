@@ -1,53 +1,31 @@
 {
   "name": "rezepte.ttst.de",
-  "version": "1.2.1",
-  "author": "Tim 'Piepmatz' Hesse",
-  "private": true,
+  "version": "0.0.0",
   "scripts": {
-    "prestart": "cd pdf && wasm-pack build",
-    "start": "concurrently \"craco start\" \"php -S localhost:3002 -t .\" \"caddy run\"",
-    "prebuild": "cd pdf && wasm-pack build",
-    "build": "craco build",
-    "postbuild": "cp -r _REZEPTE_ build/",
-    "eject": "react-scripts eject",
-    "edit:build": "cross-env EDIT_MODE=1 craco build",
-    "edit:start": "cross-env EDIT_MODE=1 craco start",
-    "edit:app": "npm run edit:build && cd edit && cargo build --release"
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build"
   },
+  "private": true,
   "dependencies": {
-    "@creativebulma/bulma-divider": "^1.1.0",
-    "bulma": "^0.9.4",
-    "bulma-prefers-dark": "^0.1.0-beta.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-markdown": "^8.0.7",
-    "react-router-dom": "^6.16.0",
-    "react-scripts": "^5.0.1",
-    "recipe-pdf": "file:./pdf/pkg",
-    "rehype-raw": "<7.0.0"
+    "@angular/common": "^20.0.0",
+    "@angular/compiler": "^20.0.0",
+    "@angular/core": "^20.0.0",
+    "@angular/forms": "^20.0.0",
+    "@angular/platform-browser": "^20.0.0",
+    "@angular/router": "^20.0.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
   },
   "devDependencies": {
-    "@types/node": "^20.6.5",
-    "@types/react": "^18.2.22",
-    "@types/react-dom": "^18.2.7",
-    "clean-webpack-plugin": "^4.0.0",
-    "concurrently": "^8.2.1",
-    "craco": "^0.0.3",
-    "craco-wasm": "^0.0.1",
-    "cross-env": "^7.0.3",
-    "sass": "^1.68.0",
-    "typescript": "<5.0.0"
+    "@angular/build": "^20.0.3",
+    "@angular/cli": "^20.0.3",
+    "@angular/compiler-cli": "^20.0.0",
+    "typescript": "~5.8.2"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "volta": {
+    "node": "22.20.0",
+    "npm": "11.6.1"
   }
 }
