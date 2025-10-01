@@ -1,3 +1,4 @@
+// We use deno for linting an formatting. Not to build Angular.
 {
   "lint": {
     "rules": {
