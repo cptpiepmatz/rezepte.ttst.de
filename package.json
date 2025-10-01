@@ -4,7 +4,8 @@
 	"scripts": {
 		"ng": "ng",
 		"start": "ng serve",
-		"build": "ng build"
+		"build": "ng build",
+		"fix": "npx @biomejs/biome check --write"
 	},
 	"private": true,
 	"dependencies": {
@@ -14,6 +15,8 @@
 		"@angular/forms": "^20.0.0",
 		"@angular/platform-browser": "^20.0.0",
 		"@angular/router": "^20.0.0",
+		"@ng-icons/core": "^32.1.0",
+		"@ng-icons/remixicon": "^32.1.0",
 		"bulma": "^1.0.4",
 		"rxjs": "~7.8.0",
 		"tslib": "^2.3.0",

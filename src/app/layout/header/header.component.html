@@ -1,0 +1,28 @@
+<div class="is-fullwidth has-background-primary">
+  <div class="p-2">
+    <div class="level is-mobile is-hidden-desktop m-0">
+      <div class="level-left">
+        <a><img src="logo.svg" style="height: 3rem; max-height: 3rem"></a>
+      </div>
+      <div class="level-right">
+        <button class="button" (click)="sidebarState().toggle()">
+          <span class="icon" style="display: inline-block">
+            @switch (sidebarState().state) {
+              @case ("hidden") {
+                <ng-icon name="remixMenuFold2Fill"></ng-icon>
+              }
+              @case ("visible") {
+                <ng-icon name="remixMenuFoldFill"></ng-icon>
+              }
+            }
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="is-hidden-touch m-0">
+      <div class="is-flex is-justify-content-center">
+        <a><img src="logo.svg" style="height: 3rem; max-height: 3rem"></a>
+      </div>
+    </div>
+  </div>
+</div>

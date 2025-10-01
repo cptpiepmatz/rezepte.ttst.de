@@ -1,5 +1,20 @@
+import {
+	type ApplicationConfig,
+	provideBrowserGlobalErrorListeners,
+	provideZoneChangeDetection,
+} from "@angular/core";
 import { bootstrapApplication } from "@angular/platform-browser";
-import { appConfig } from "./app_/app.config";
-import { App } from "./app_/app";
+import { provideRouter } from "@angular/router";
+import { LayoutComponent } from "./layout/layout.component";
 
-bootstrapApplication(App, appConfig).catch((err) => console.error(err));
+const config: ApplicationConfig = {
+	providers: [
+		provideBrowserGlobalErrorListeners(),
+		provideZoneChangeDetection({ eventCoalescing: true }),
+		provideRouter([]),
+	],
+};
+
+bootstrapApplication(LayoutComponent, config).catch((err) =>
+	console.error(err),
+);

@@ -9,7 +9,6 @@
 				"@schematics/angular:component": {
 					"skipTests": true,
 					"style": "none",
-					"skipSelector": true,
 					"type": "component"
 				},
 				"@schematics/angular:class": {
@@ -45,7 +44,7 @@
 			},
 			"root": "",
 			"sourceRoot": "src",
-			"prefix": "app",
+			"prefix": "",
 			"architect": {
 				"build": {
 					"builder": "@angular/build:application",
@@ -56,6 +55,10 @@
 						"tsConfig": "tsconfig.json",
 						"inlineStyleLanguage": "scss",
 						"assets": [
+							{
+								"glob": "logo.{png,svg}",
+								"input": "logo"
+							},
 							{
 								"glob": "**/*",
 								"input": "public"

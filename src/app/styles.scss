@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+@use "bulma/sass" with (
+  $primary: #34ac46,
+);
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+.is-fullwidth {
+  width: 100%;
+  max-width: 100%;
+}
+
+.is-fullheight {
+  height: 100%;
+  max-height: 100%;
+}
