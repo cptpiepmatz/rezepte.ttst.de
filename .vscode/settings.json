@@ -1,5 +1,8 @@
 {
   "cSpell.language": "en,de",
   "deno.enable": false,
-  "material-icon-theme.folders.associations": { "logo": "images" }
+  "material-icon-theme.folders.associations": { 
+    "_REZEPTE_": "template",
+    "logo": "images",
+  },
 }
