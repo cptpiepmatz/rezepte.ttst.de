@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json
+version: "0.2"
+language: en,de
+dictionaries: [de-de]
+import: ["@cspell/dict-de-de/cspell-ext.json"]
+useGitignore: true
+allowCompoundWords: true
+
+languageSettings:
+  - languageId: "*"
+    locale: de,de-DE
+    caseSensitive: false
+
+ignorePaths: [cspell.yml]
+words: [ttst, bulma, nbsp]
+
+overrides:
+  - filename: public/favicon/browserconfig.xml
+    words: [msapplication]
+  - filename: "**/*.svg"
+    words: [xlink]
+  - filename: "**/*.rezept.txt"
+    words:
+      - anschwitzen
+      - Balsamico
+      - bemehlen
+      - Gobetti
+      - Homann
+      - neunteln
+      - Parika
+      - bemehlten
+      - Farfalle
+      - abschütten
+      - ungefettete
