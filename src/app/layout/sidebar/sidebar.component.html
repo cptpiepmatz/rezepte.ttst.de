@@ -1,1 +1,15 @@
-<p>sidebar works!</p>
+<aside class="menu p-3">
+  <p class="menu-label">Rezepte</p>
+  <ul class="menu-list">
+    @for (recipe of service.recipe.all; track recipe) {
+      <li>
+        <a
+          [routerLink]="[]"
+          [queryParams]="{ recipe }"
+          queryParamsHandling="merge"
+          [replaceUrl]="true"
+        >{{ recipe }}</a>
+      </li>
+    }
+  </ul>
+</aside>

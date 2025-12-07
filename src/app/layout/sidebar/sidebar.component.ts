@@ -1,8 +1,12 @@
-import { Component } from "@angular/core";
+import { Component, inject } from "@angular/core";
+import { RecipeService } from "../../recipe.service";
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: "sidebar",
-  imports: [],
+  imports: [RouterLink],
   templateUrl: "./sidebar.component.html",
 })
-export class SidebarComponent {}
+export class SidebarComponent {
+  protected service = inject(RecipeService);
+}
