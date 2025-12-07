@@ -74,7 +74,7 @@ Bei Bildern gilt zusätzlich noch, dass der Pfad nur verkürzt angeben werden
 muss. Also für Bilder der Form `![alt text](bild link)`, sollte bei dem Bild
 Link lediglich der Name des Bildes angegeben werden. Der Pfad wird dann
 automatisch ergänzt. So wird dann `Pizza.jpg` zu
-`_REZEPTE_/img/Pizza/Pizza.jpg`.
+`.recipes/img/Pizza/Pizza.jpg`.
 
 ### [Resultatbild]
 
@@ -92,4 +92,4 @@ wird dann als Ziel für den Inspirationsbutton gesetzt.
 ### [PDF]
 
 Hier wird der Name der .pdf erwartet, die zu dem jeweiligen Rezept gehört. Die
-PDF sollte dann im Ordner `_REZEPTE_/pdf` liegen.
+PDF sollte dann im Ordner `.recipes/pdf` liegen.

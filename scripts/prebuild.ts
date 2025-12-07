@@ -8,7 +8,7 @@ async function prebuild() {
 
 /** Generates src/generated/recipes.json with a list of recipe names. */
 async function generateRecipeList() {
-  const recipesDir = "_REZEPTE_";
+  const recipesDir = ".recipes";
   const outputFile = "generated/recipes.json";
   const recipes: string[] = [];
 

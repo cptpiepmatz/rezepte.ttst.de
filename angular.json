@@ -65,8 +65,8 @@
               },
               {
                 "glob": "**/*",
-                "input": "_REZEPTE_",
-                "output": "_REZEPTE_"
+                "input": ".recipes",
+                "output": ".recipes"
               }
             ],
             "styles": ["src/app/styles.scss"]
