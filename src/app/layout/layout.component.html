@@ -5,7 +5,7 @@
 >
   <div class="columns" style="width: 100%; max-width: 1920px">
     <div class="pl-0 pr-0 column is-narrow"><sidebar></sidebar></div>
-    <div class="column">
+    <div class="pl-0 pr-0 column">
       @let recipe = this.service.recipeName();
       <recipe [style.display]='recipe ? null : "none"'></recipe>
       <greeter [style.display]='recipe ? "none" : null'></greeter>

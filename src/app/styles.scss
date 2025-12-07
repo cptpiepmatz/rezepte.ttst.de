@@ -1,5 +1,5 @@
 @use "./variables.scss" as vars;
-@use "bulma/sass" with ($primary: vars.$primary);
+@use "bulma/sass" with ($primary: vars.$primary, $link: vars.$primary);
 
 @media (prefers-color-scheme: dark) {
   :root {

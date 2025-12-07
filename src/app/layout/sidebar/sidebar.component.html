@@ -1,9 +1,12 @@
-<aside class="menu p-3">
+@let currentRecipe = this.service.recipeName();
+
+<aside class="menu p-3" style="height: 100%;">
   <p class="menu-label">Rezepte</p>
   <ul class="menu-list">
     @for (recipe of service.all; track recipe) {
       <li>
         <a
+          [class.is-active]="recipe == currentRecipe"
           [routerLink]="[]"
           [queryParams]="{ recipe }"
           queryParamsHandling="merge"

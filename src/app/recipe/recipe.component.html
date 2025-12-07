@@ -1,66 +1,76 @@
 @let recipe = this.service.recipe();
 
-<div>
-  <p class="title is-2">
-    {{ recipe?.name }}
-  </p>
-</div>
+<main>
+  <div class="pt-2 px-6" style="grid-area: title">
+    <p class="title is-2 has-text-centered">
+      {{ recipe?.name }}
+    </p>
+  </div>
 
-<div>
-  <hr>
-</div>
+  <div class="px-6" style="grid-area: hr">
+    <hr class="has-background-text">
+  </div>
 
-<div>
-  <div class="card">
-    @let resultImage = recipe?.resultImage;
-    @if (resultImage) {
-      <div class="card-image">
-        <figure class="image">
-          <img [src]="resultImage + '?' + this.service.commit">
-        </figure>
+  <div style="grid-area: card">
+    <div class="card m-4">
+      @let resultImage = recipe?.resultImage;
+      @if (resultImage) {
+        <div class="card-image">
+          <figure class="image">
+            <img [src]='resultImage + "?" + this.service.commit'>
+          </figure>
+        </div>
+      }
+
+      <div class="card-content p-0">
+        <a>
+          <p class="p-3">🖨️ PDF zum ausdrucken</p>
+        </a>
+      </div>
+
+      @let inspiration = recipe?.inspiration;
+      @if (inspiration) {
+        <div class="card-content p-0">
+          <a [href]="inspiration" target="_blank">
+            <p class="p-3">💡 Inspiration</p>
+          </a>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div style="grid-area: ingredients">
+    <p class="title is-4 has-text-centered">Zutaten</p>
+    @let ingredients = recipe?.ingredients;
+    @if (ingredients) {
+      <div class="mb-5 is-flex is-justify-content-center">
+        <table class="table is-striped">
+          <tbody>
+            @for (ingredient of ingredients._; track ingredient) {
+              <tr>
+                <td>
+                  {{ ingredient.amountToString() }}
+                  {{ ingredient.unit }}
+                </td>
+                <td>{{ ingredient.description }}</td>
+              </tr>
+            }
+            <tr></tr>
+          </tbody>
+        </table>
       </div>
     }
+  </div>
 
-    <div class="card-content p-0">
-      <a>
-        <p class="p-3">🖨️ PDF zum ausdrucken</p>
-      </a>
-    </div>
-
-  @let inspiration = recipe?.inspiration;
-  @if (inspiration) {
-    <div class="card-content p-0">
-      <a [href]="inspiration" target="_blank">
-        <p class="p-3">💡 Inspiration</p>
-      </a>
-    </div>
-  }
-
-    </div>
-</div>
-
-<div>
-  <p class="title is-4 has-text-centered">Zutaten</p>
-  @let ingredients = recipe?.ingredients;
-  @if (ingredients) {
-  <table class="table">
-    <tbody>
-      @for (ingredient of ingredients._; track ingredient) {
-        <tr>
-          <td>{{ingredient.amountToString()}} {{ingredient.unit}}</td>
-          <td>{{ingredient.description}}</td>
-        </tr>
-      }
-      <tr></tr>
-    </tbody>
-  </table>
-  }
-</div>
-
-<div>
-  @let preparation = this.preparation.value();
-  @if (preparation) {
-    <div class="content" [innerHTML]="preparation">
-    </div>
-  }
-</div>
+  <div style="grid-area: preparation">
+    @let preparation = this.preparation.value();
+    @if (preparation) {
+      <div
+        class="content has-text-justified mb-5"
+        [innerHTML]="preparation"
+        style="margin-left: 5rem; margin-right: 5rem;"
+      >
+      </div>
+    }
+  </div>
+</main>

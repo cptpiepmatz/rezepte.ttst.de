@@ -1,0 +1,25 @@
+main {
+  display: grid;
+  grid-template:
+    "title card" auto
+    "hr card" auto
+    "ingredients card" auto
+    "preparation card" auto / 2fr 1fr;
+}
+
+.table {
+  background-color: var(--main-bg-color);
+  --bulma-table-striped-row-even-background-color: var(--sidebar-bg-color);
+}
+
+:host ::ng-deep {
+  h3 a {
+    display: none;
+  }
+
+  .content img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.3rem;
+  }
+}
