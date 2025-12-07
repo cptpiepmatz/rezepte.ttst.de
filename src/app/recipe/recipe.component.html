@@ -1,1 +1,66 @@
-<p>recipe works!</p>
+@let recipe = this.service.recipe();
+
+<div>
+  <p class="title is-2">
+    {{ recipe?.name }}
+  </p>
+</div>
+
+<div>
+  <hr>
+</div>
+
+<div>
+  <div class="card">
+    @let resultImage = recipe?.resultImage;
+    @if (resultImage) {
+      <div class="card-image">
+        <figure class="image">
+          <img [src]="resultImage + '?' + this.service.commit">
+        </figure>
+      </div>
+    }
+
+    <div class="card-content p-0">
+      <a>
+        <p class="p-3">🖨️ PDF zum ausdrucken</p>
+      </a>
+    </div>
+
+  @let inspiration = recipe?.inspiration;
+  @if (inspiration) {
+    <div class="card-content p-0">
+      <a [href]="inspiration" target="_blank">
+        <p class="p-3">💡 Inspiration</p>
+      </a>
+    </div>
+  }
+
+    </div>
+</div>
+
+<div>
+  <p class="title is-4 has-text-centered">Zutaten</p>
+  @let ingredients = recipe?.ingredients;
+  @if (ingredients) {
+  <table class="table">
+    <tbody>
+      @for (ingredient of ingredients._; track ingredient) {
+        <tr>
+          <td>{{ingredient.amountToString()}} {{ingredient.unit}}</td>
+          <td>{{ingredient.description}}</td>
+        </tr>
+      }
+      <tr></tr>
+    </tbody>
+  </table>
+  }
+</div>
+
+<div>
+  @let preparation = this.preparation.value();
+  @if (preparation) {
+    <div class="content" [innerHTML]="preparation">
+    </div>
+  }
+</div>
