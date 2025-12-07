@@ -1,0 +1,9 @@
+aside {
+  background-color: var(--sidebar-bg-color);
+}
+
+a {
+  --bulma-menu-item-h: var(--sidebar-bg-color-h);
+  --bulma-menu-item-s: var(--sidebar-bg-color-s);
+  --bulma-menu-item-background-l: var(--sidebar-bg-color-l);
+}

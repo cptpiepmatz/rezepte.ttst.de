@@ -1,8 +1,9 @@
-import { Component } from "@angular/core";
+import { Component, inject } from "@angular/core";
 import { FooterComponent } from "./footer/footer.component";
 import { HeaderComponent } from "./header/header.component";
 import { SidebarComponent } from "./sidebar/sidebar.component";
 import { GreeterComponent } from "../greeter/greeter.component";
+import { RecipeService } from "../recipe.service";
 
 @Component({
   selector: "layout",
@@ -14,4 +15,6 @@ import { GreeterComponent } from "../greeter/greeter.component";
   ],
   templateUrl: "./layout.component.html",
 })
-export class LayoutComponent {}
+export class LayoutComponent {
+  protected service = inject(RecipeService);
+}

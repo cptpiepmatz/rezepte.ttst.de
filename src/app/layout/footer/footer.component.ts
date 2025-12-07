@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 
 @Component({
-  selector: "footer",
+  selector: "footer:not(.footer)",
   imports: [],
   templateUrl: "./footer.component.html",
 })
