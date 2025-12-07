@@ -2,10 +2,11 @@ import { Component, computed, inject, resource } from "@angular/core";
 import { RecipeService } from "./recipe.service";
 import { MarkdownFile } from "@dimerapp/markdown";
 import { toHtml } from "@dimerapp/markdown/utils";
+import { KeyValuePipe } from "@angular/common";
 
 @Component({
   selector: "recipe",
-  imports: [],
+  imports: [KeyValuePipe],
   templateUrl: "./recipe.component.html",
   styleUrl: "./recipe.component.scss",
 })

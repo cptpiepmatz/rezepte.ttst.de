@@ -40,24 +40,29 @@
   </div>
 
   <div style="grid-area: ingredients">
-    <p class="title is-4 has-text-centered">Zutaten</p>
+    <p class="title is-3 has-text-centered">Zutaten</p>
     @let ingredients = recipe?.ingredients;
     @if (ingredients) {
-      <div class="mb-5 is-flex is-justify-content-center">
-        <table class="table is-striped">
-          <tbody>
-            @for (ingredient of ingredients._; track ingredient) {
-              <tr>
-                <td>
-                  {{ ingredient.amountToString() }}
-                  {{ ingredient.unit }}
-                </td>
-                <td>{{ ingredient.description }}</td>
-              </tr>
-            }
-            <tr></tr>
-          </tbody>
-        </table>
+      <div class="mb-5 is-flex is-flex-direction-column is-align-items-center">
+        @for (group of ingredients | keyvalue; track group) {
+          @if (group.key != "_") {
+            <p class="title is-5 mb-0">{{ group.key }}</p>
+          }
+          <table class="table is-striped">
+            <tbody>
+              @for (ingredient of group.value; track ingredient) {
+                <tr>
+                  <td>
+                    {{ ingredient.amountToString() }}
+                    {{ ingredient.unit }}
+                  </td>
+                  <td>{{ ingredient.description }}</td>
+                </tr>
+              }
+              <tr></tr>
+            </tbody>
+          </table>
+        }
       </div>
     }
   </div>
@@ -68,7 +73,7 @@
       <div
         class="content has-text-justified mb-5"
         [innerHTML]="preparation"
-        style="margin-left: 5rem; margin-right: 5rem;"
+        style="margin-left: 5rem; margin-right: 5rem"
       >
       </div>
     }
