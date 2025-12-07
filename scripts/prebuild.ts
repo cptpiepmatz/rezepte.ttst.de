@@ -2,6 +2,7 @@
 async function prebuild() {
   console.log("🚀 Running prebuild...");
   await generateRecipeList();
+  await writeGitCommit();
   console.log("✅ Prebuild finished.");
 }
 
@@ -25,6 +26,18 @@ async function generateRecipeList() {
   );
 
   console.log(`🧾 Wrote ${recipes.length} recipes to ${outputFile}`);
+}
+
+/** Writes the current git commit hash to generated/git-commit.txt. */
+async function writeGitCommit() {
+  const cmd = new Deno.Command("git", { args: ["rev-parse", "HEAD"] });
+  const { stdout } = await cmd.output();
+  const commit = new TextDecoder().decode(stdout).trim();
+
+  await Deno.mkdir("generated", { recursive: true });
+  await Deno.writeTextFile("generated/git-commit.json", `"${commit}"\n`);
+
+  console.log(`📦 Wrote git commit ${commit}`);
 }
 
 // Run the prebuild

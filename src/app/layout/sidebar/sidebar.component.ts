@@ -1,5 +1,5 @@
 import { Component, inject } from "@angular/core";
-import { RecipeService } from "../../recipe.service";
+import { RecipeService } from "../../recipe/recipe.service";
 import { RouterLink } from "@angular/router";
 
 @Component({

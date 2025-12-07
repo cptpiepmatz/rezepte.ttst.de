@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "start": "ng serve",
-    "prebuild": "deno run --allow-read --allow-write scripts/prebuild.ts",
+    "prebuild": "deno run --allow-read --allow-write --allow-run=git scripts/prebuild.ts",
     "build": "ng build",
     "fmt": "deno fmt .",
     "fmt:check": "deno fmt . --check",
