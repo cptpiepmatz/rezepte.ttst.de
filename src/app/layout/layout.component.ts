@@ -4,6 +4,7 @@ import { HeaderComponent } from "./header/header.component";
 import { SidebarComponent } from "./sidebar/sidebar.component";
 import { GreeterComponent } from "../greeter/greeter.component";
 import { RecipeService } from "../recipe.service";
+import { RecipeComponent } from "../recipe/recipe.component";
 
 @Component({
   selector: "layout",
@@ -12,6 +13,7 @@ import { RecipeService } from "../recipe.service";
     SidebarComponent,
     FooterComponent,
     GreeterComponent,
+    RecipeComponent,
   ],
   templateUrl: "./layout.component.html",
 })
