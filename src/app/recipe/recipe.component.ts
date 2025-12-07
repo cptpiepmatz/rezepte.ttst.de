@@ -1,8 +1,7 @@
 import { Component, computed, inject, resource } from "@angular/core";
 import { RecipeService } from "./recipe.service";
-import { MarkdownFile } from "@dimerapp/markdown";
-import { toHtml } from "@dimerapp/markdown/utils";
 import { KeyValuePipe } from "@angular/common";
+import markdownit from "markdown-it";
 
 @Component({
   selector: "recipe",
@@ -13,12 +12,10 @@ import { KeyValuePipe } from "@angular/common";
 export class RecipeComponent {
   protected service = inject(RecipeService);
 
-  protected preparation = resource({
-    params: computed(() => this.service.recipe()?.preparation),
-    loader: async ({ params: content }) => {
-      let md = new MarkdownFile(content);
-      await md.process();
-      return toHtml(md).contents;
-    },
+  protected preparation = computed(() => {
+    let raw = this.service.recipe()?.preparation;
+    if (!raw) return undefined;
+    let md = markdownit();
+    return md.render(raw);
   });
 }

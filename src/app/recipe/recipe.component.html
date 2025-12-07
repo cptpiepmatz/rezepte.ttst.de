@@ -43,7 +43,7 @@
     <p class="title is-3 has-text-centered">Zutaten</p>
     @let ingredients = recipe?.ingredients;
     @if (ingredients) {
-      <div class="mb-5 is-flex is-flex-direction-column">
+      <div class="mb-5 is-flex is-flex-direction-column is-align-items-center">
         <table class="table is-striped">
             <tbody>
               @for (ingredient of ingredients._; track ingredient) {
@@ -83,7 +83,7 @@
   </div>
 
   <div style="grid-area: preparation">
-    @let preparation = this.preparation.value();
+    @let preparation = this.preparation();
     @if (preparation) {
       <div
         class="content has-text-justified mb-5"
