@@ -62,6 +62,11 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "_REZEPTE_",
+                "output": "_REZEPTE_"
               }
             ],
             "styles": ["src/app/styles.scss"]
