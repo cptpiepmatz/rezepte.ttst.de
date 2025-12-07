@@ -52,7 +52,7 @@
             "browser": "src/app/main.ts",
             "index": "src/app/index.html",
             "polyfills": ["zone.js"],
-            "tsConfig": "tsconfig.app.json",
+            "tsConfig": "tsconfig.json",
             "inlineStyleLanguage": "scss",
             "assets": [
               {
