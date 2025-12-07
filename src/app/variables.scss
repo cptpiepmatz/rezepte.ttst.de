@@ -1,3 +1,6 @@
+@use "sass:color";
+@use "sass:list";
+
 $primary: #34ac46;
 
 $colors: (
@@ -8,16 +11,19 @@ $colors: (
 
 :root {
   @each $name, $pair in $colors {
-    --#{$name}-h: #{hue(nth($pair, 1))};
-    --#{$name}-s: #{saturation(nth($pair, 1))};
-    --#{$name}-l: #{lightness(nth($pair, 1))};
-    --#{$name}: #{nth($pair, 1)};
+    $light-color: list.nth($pair, 1);
+    $dark-color: list.nth($pair, 2);
+
+    --#{$name}-h: #{color.channel($light-color, "hue", $space: hsl)};
+    --#{$name}-s: #{color.channel($light-color, "saturation", $space: hsl)};
+    --#{$name}-l: #{color.channel($light-color, "lightness", $space: hsl)};
+    --#{$name}: #{$light-color};
 
     @media (prefers-color-scheme: dark) {
-      --#{$name}-h: #{hue(nth($pair, 2))};
-      --#{$name}-s: #{saturation(nth($pair, 2))};
-      --#{$name}-l: #{lightness(nth($pair, 2))};
-      --#{$name}: #{nth($pair, 2)};
+      --#{$name}-h: #{color.channel($dark-color, "hue", $space: hsl)};
+      --#{$name}-s: #{color.channel($dark-color, "saturation", $space: hsl)};
+      --#{$name}-l: #{color.channel($dark-color, "lightness", $space: hsl)};
+      --#{$name}: #{$dark-color};
     }
   }
 }
