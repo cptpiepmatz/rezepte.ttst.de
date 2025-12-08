@@ -5,7 +5,7 @@ import { toSignal } from "@angular/core/rxjs-interop";
 import gitCommit from "../../../generated/git-commit.json";
 import { httpResource } from "@angular/common/http";
 import RecipeParser from "./recipe-parser";
-import init, {gen_recipe_pdf} from "../../../pkg/pdf";
+import init, { gen_recipe_pdf } from "../../../pkg/pdf";
 
 @Injectable({
   providedIn: "root",
@@ -44,7 +44,9 @@ export class RecipeService {
     let recipeJSON = JSON.stringify(recipe);
     await this.wasmInit;
     let buffer = gen_recipe_pdf(recipeJSON);
-    let blob = new Blob([buffer as Uint8Array<ArrayBuffer>], {type: "application/pdf"});
+    let blob = new Blob([buffer as Uint8Array<ArrayBuffer>], {
+      type: "application/pdf",
+    });
     let url = URL.createObjectURL(blob);
     window.open(url);
   }
