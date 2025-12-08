@@ -4,6 +4,7 @@ use genpdf::{Document, PaperSize, SimplePageDecorator};
 use std::rc::Rc;
 use utils::ErrToJS;
 use wasm_bindgen::prelude::*;
+use wee_alloc::WeeAlloc;
 
 mod document;
 mod ext;
@@ -12,6 +13,9 @@ mod utils;
 
 #[cfg(test)]
 mod test;
+
+#[global_allocator]
+static ALLOC: WeeAlloc = WeeAlloc::INIT;
 
 #[wasm_bindgen]
 pub fn gen_recipe_pdf(ser_recipe: &str) -> Result<Vec<u8>, JsValue> {

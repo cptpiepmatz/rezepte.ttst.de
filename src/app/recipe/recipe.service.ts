@@ -5,6 +5,7 @@ import { toSignal } from "@angular/core/rxjs-interop";
 import gitCommit from "../../../generated/git-commit.json";
 import { httpResource } from "@angular/common/http";
 import RecipeParser from "./recipe-parser";
+import init, {gen_recipe_pdf} from "../../../pkg/pdf";
 
 @Injectable({
   providedIn: "root",
@@ -34,4 +35,15 @@ export class RecipeService {
     if (!name || !content) return undefined;
     return RecipeParser.parse(content, name);
   });
+
+  private wasmURL = `pdf_bg.wasm?${this.commit}`;
+  private wasmInit = init(new URL(this.wasmURL, import.meta.url));
+  async print() {
+    let recipe = this.recipe();
+    if (!recipe) return;
+    let recipeJSON = JSON.stringify(recipe);
+    await this.wasmInit;
+    let pdfBytes = gen_recipe_pdf(recipeJSON);
+    console.log(pdfBytes);
+  }
 }

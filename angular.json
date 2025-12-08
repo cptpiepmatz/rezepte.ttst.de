@@ -67,6 +67,10 @@
                 "glob": "**/*",
                 "input": ".recipes",
                 "output": ".recipes"
+              },
+              {
+                "glob": "*.wasm",
+                "input": "pkg"
               }
             ],
             "styles": ["src/app/styles.scss"]

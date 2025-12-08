@@ -2,9 +2,9 @@
   "name": "@rezepte.ttst.de/app",
   "version": "0.0.0",
   "scripts": {
+    "prestart": "npm run prebuild",
     "start": "ng serve",
-    "wasm": "wasm-pack build --target=bundler --release --scope=rezepte.ttst.de --out-name=pdf",
-    "postwasm": "deno run --no-npm --allow-read --allow-write scripts/postwasm.ts",
+    "wasm": "wasm-pack build --target=web --release --scope=rezepte.ttst.de --out-name=pdf",
     "meta": "deno run --allow-read --allow-write --allow-run=git scripts/meta.ts",
     "prebuild": "npm run wasm && npm run meta",
     "build": "ng build",
