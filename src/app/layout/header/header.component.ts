@@ -1,6 +1,6 @@
 import { Component, model } from "@angular/core";
 import { NgIconComponent, provideIcons } from "@ng-icons/core";
-import { remixMenuFold2Fill, remixMenuFoldFill } from "@ng-icons/remixicon";
+import { remixCloseLargeFill, remixMenuFill } from "@ng-icons/remixicon";
 import { SidebarState } from "../layout";
 import { RouterLink } from "@angular/router";
 
@@ -8,7 +8,7 @@ import { RouterLink } from "@angular/router";
   selector: "header",
   imports: [NgIconComponent, RouterLink],
   templateUrl: "./header.component.html",
-  providers: [provideIcons({ remixMenuFoldFill, remixMenuFold2Fill })],
+  providers: [provideIcons({ remixMenuFill, remixCloseLargeFill })],
 })
 export class HeaderComponent {
   readonly sidebarState = model("visible" as "visible" | "hidden");
