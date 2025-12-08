@@ -1,4 +1,4 @@
-import { Component, inject } from "@angular/core";
+import { Component, inject, model } from "@angular/core";
 import { RecipeService } from "../../recipe/recipe.service";
 import { RouterLink } from "@angular/router";
 
@@ -10,4 +10,7 @@ import { RouterLink } from "@angular/router";
 })
 export class SidebarComponent {
   protected service = inject(RecipeService);
+  protected window = globalThis.window;
+
+  readonly state = model("hidden" as "hidden" | "visible");
 }

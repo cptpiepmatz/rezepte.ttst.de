@@ -11,6 +11,8 @@
           [queryParams]="{ recipe }"
           queryParamsHandling="merge"
           [replaceUrl]="true"
+          (click)='state.set("hidden")'
+          (click)='window.scrollTo({ top: 0, left: 0, behavior: "instant" })'
         >{{ recipe }}</a>
       </li>
     }

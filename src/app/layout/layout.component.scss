@@ -1,7 +1,13 @@
 @use "bulma/sass/utilities/initial-variables" as iv;
 
+.sidebar {
+  transition: max-height 1s ease-out;
+  max-height: 100%;
+}
+
 .zero-height {
   max-height: 0;
+  transition-duration: 0.2s;
 }
 
 @media (max-width: iv.$tablet) {

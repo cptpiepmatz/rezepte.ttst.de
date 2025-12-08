@@ -1,3 +1,5 @@
+@use "bulma/sass/utilities/initial-variables" as iv;
+
 main {
   display: grid;
   grid-template:
@@ -5,6 +7,20 @@ main {
     "hr card" auto
     "ingredients card" auto
     "preparation card" auto / 2fr 1fr;
+}
+
+@media (max-width: iv.$tablet) {
+  main {
+    grid-template:
+      "title" auto
+      "card" auto
+      "ingredients" auto
+      "preparation" auto / 1fr;
+  }
+
+  .hr {
+    display: none;
+  }
 }
 
 .table {
