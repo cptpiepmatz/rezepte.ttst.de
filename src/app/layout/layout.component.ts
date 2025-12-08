@@ -23,5 +23,4 @@ export class LayoutComponent {
   protected service = inject(RecipeService);
 
   readonly sidebarState = model("hidden" as "hidden" | "visible");
-  private _sidebarState = effect(() => console.log(this.sidebarState()));
 }

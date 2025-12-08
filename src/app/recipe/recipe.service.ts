@@ -34,6 +34,4 @@ export class RecipeService {
     if (!name || !content) return undefined;
     return RecipeParser.parse(content, name);
   });
-
-  _recipe = effect(() => console.log(this.recipe()));
 }
