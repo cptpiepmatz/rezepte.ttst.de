@@ -1,9 +1,12 @@
 {
-  "name": "rezepte.ttst.de",
+  "name": "@rezepte.ttst.de/app",
   "version": "0.0.0",
   "scripts": {
     "start": "ng serve",
-    "prebuild": "deno run --allow-read --allow-write --allow-run=git scripts/prebuild.ts",
+    "wasm": "wasm-pack build --target=bundler --release --scope=rezepte.ttst.de --out-name=pdf",
+    "postwasm": "deno run --no-npm --allow-read --allow-write scripts/postwasm.ts",
+    "meta": "deno run --allow-read --allow-write --allow-run=git scripts/meta.ts",
+    "prebuild": "npm run wasm && npm run meta",
     "build": "ng build",
     "fmt": "deno fmt .",
     "fmt:check": "deno fmt . --check",
@@ -24,6 +27,7 @@
     "markdown-it": "^14.1.0",
     "rxjs": "~7.8.2",
     "tslib": "^2.8.1",
+    "wasm-pack": "^0.13.1",
     "zone.js": "~0.16.0"
   },
   "devDependencies": {

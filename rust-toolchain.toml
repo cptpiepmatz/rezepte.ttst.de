@@ -1,0 +1,4 @@
+[toolchain]
+# Pin rust version to this to allow building with wasm-bindgen that is 
+# compatible with the pdf generator library.
+channel = "1.85.1"

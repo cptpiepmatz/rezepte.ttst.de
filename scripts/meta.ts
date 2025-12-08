@@ -1,9 +1,9 @@
 /** Entry point for all prebuild tasks. */
-async function prebuild() {
-  console.log("🚀 Running prebuild...");
+async function meta() {
+  console.log("🚀 Running meta build...");
   await generateRecipeList();
   await writeGitCommit();
-  console.log("✅ Prebuild finished.");
+  console.log("✅ Meta build finished.");
 }
 
 /** Generates src/generated/recipes.json with a list of recipe names. */
@@ -42,5 +42,5 @@ async function writeGitCommit() {
 
 // Run the prebuild
 if (import.meta.main) {
-  await prebuild();
+  await meta();
 }
