@@ -5,12 +5,12 @@
   max-height: 100%;
 }
 
-.zero-height {
-  max-height: 0;
-  transition-duration: 0.2s;
-}
+@media (max-width: iv.$desktop) {
+  .zero-height {
+    max-height: 0;
+    transition-duration: 0.2s;
+  }
 
-@media (max-width: iv.$tablet) {
   .sidebar {
     padding-bottom: 0;
   }
