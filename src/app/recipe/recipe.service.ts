@@ -48,6 +48,6 @@ export class RecipeService {
       type: "application/pdf",
     });
     let url = URL.createObjectURL(blob);
-    window.open(url);
+    globalThis.open(url);
   }
 }
