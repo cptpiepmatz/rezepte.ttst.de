@@ -3,7 +3,8 @@ use genpdf::fonts::{FontData, FontFamily};
 const LIBERATION_SANS_REGULAR: &[u8] = include_bytes!("../../fonts/LiberationSans-Regular.ttf");
 const LIBERATION_SANS_ITALIC: &[u8] = include_bytes!("../../fonts/LiberationSans-Italic.ttf");
 const LIBERATION_SANS_BOLD: &[u8] = include_bytes!("../../fonts/LiberationSans-Bold.ttf");
-const LIBERATION_SANS_BOLD_ITALIC: &[u8] = include_bytes!("../../fonts/LiberationSans-BoldItalic.ttf");
+const LIBERATION_SANS_BOLD_ITALIC: &[u8] =
+    include_bytes!("../../fonts/LiberationSans-BoldItalic.ttf");
 
 pub fn init_font_family() -> FontFamily<FontData> {
     let regular =

@@ -3,3 +3,4 @@
 # compatible with the pdf generator library.
 channel = "1.85.1"
 profile = "minimal"
+components = ["rustfmt"]

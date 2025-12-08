@@ -51,17 +51,17 @@ impl Element for Preparation {
                 E::End(TE::Strong) => strong = false,
                 E::Start(T::Emphasis) => emphasis = true,
                 E::End(TE::Emphasis) => emphasis = false,
-                E::Start(T::Heading {..}) => heading = true,
-                E::End(TE::Heading {..}) => {
+                E::Start(T::Heading { .. }) => heading = true,
+                E::End(TE::Heading { .. }) => {
                     heading = false;
                     paragraphs.push(mem::take(&mut paragraph));
                 }
 
-                E::Start(T::Image {..}) => {
+                E::Start(T::Image { .. }) => {
                     paragraphs.push(PaddedElement::new(mem::take(&mut paragraph), margins));
                     is_image = true;
                 }
-                E::End(TE::Image {..}) => {
+                E::End(TE::Image { .. }) => {
                     is_image = false;
                 }
 

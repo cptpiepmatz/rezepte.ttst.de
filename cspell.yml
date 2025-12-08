@@ -11,7 +11,7 @@ languageSettings:
     locale: de,de-DE
     caseSensitive: false
 
-ignorePaths: [cspell.yml]
+ignorePaths: [cspell.yml, fonts]
 words: [ttst, bulma, nbsp]
 
 overrides:
@@ -32,3 +32,17 @@ overrides:
       - Farfalle
       - abschütten
       - ungefettete
+  - filename: Cargo.toml
+    words:
+      - cdylib
+      - rlib
+      - dlmalloc
+      - serde
+      - cmark
+  - filename: src/pdf/**/*
+    words:
+      - cmark
+      - trbl
+      - bemehlten
+      - trunc
+      - fract
