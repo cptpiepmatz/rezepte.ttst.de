@@ -1,0 +1,11 @@
+@use "bulma/sass/utilities/initial-variables" as iv;
+
+.zero-height {
+  max-height: 0;
+}
+
+@media (max-width: iv.$tablet) {
+  .sidebar {
+    padding-bottom: 0;
+  }
+}

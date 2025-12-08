@@ -8,9 +8,9 @@
           ></a>
       </div>
       <div class="level-right">
-        <button class="button" (click)="sidebarState().toggle()">
+        <button class="button" (click)="toggleSidebar()">
           <span class="icon" style="display: inline-block">
-            @switch (sidebarState().state) {
+            @switch (sidebarState()) {
               @case ("hidden") {
                 <ng-icon name="remixMenuFold2Fill"></ng-icon>
               }

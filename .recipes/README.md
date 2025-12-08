@@ -73,8 +73,7 @@ Element beinhalten darf. Mehr zu
 Bei Bildern gilt zusätzlich noch, dass der Pfad nur verkürzt angeben werden
 muss. Also für Bilder der Form `![alt text](bild link)`, sollte bei dem Bild
 Link lediglich der Name des Bildes angegeben werden. Der Pfad wird dann
-automatisch ergänzt. So wird dann `Pizza.jpg` zu
-`.recipes/img/Pizza/Pizza.jpg`.
+automatisch ergänzt. So wird dann `Pizza.jpg` zu `.recipes/img/Pizza/Pizza.jpg`.
 
 ### [Resultatbild]
 

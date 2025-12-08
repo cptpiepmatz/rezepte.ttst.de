@@ -11,5 +11,15 @@ import { RouterLink } from "@angular/router";
   providers: [provideIcons({ remixMenuFoldFill, remixMenuFold2Fill })],
 })
 export class HeaderComponent {
-  readonly sidebarState = model(new SidebarState());
+  readonly sidebarState = model("visible" as "visible" | "hidden");
+  protected toggleSidebar() {
+    this.sidebarState.update((state) => {
+      switch (state) {
+        case "visible":
+          return "hidden";
+        case "hidden":
+          return "visible";
+      }
+    });
+  }
 }
