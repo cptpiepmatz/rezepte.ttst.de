@@ -44,10 +44,12 @@ export class RecipeService {
     let recipeJSON = JSON.stringify(recipe);
     await this.wasmInit;
     let buffer = gen_recipe_pdf(recipeJSON);
-    let blob = new Blob([buffer as Uint8Array<ArrayBuffer>], {
-      type: "application/pdf",
-    });
+    let blob = new Blob(
+      [buffer as Uint8Array<ArrayBuffer>],
+      { type: "application/pdf" },
+    );
     let url = URL.createObjectURL(blob);
     globalThis.open(url);
+    URL.revokeObjectURL(url);
   }
 }
