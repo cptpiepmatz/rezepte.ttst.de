@@ -43,7 +43,9 @@ export class RecipeService {
     if (!recipe) return;
     let recipeJSON = JSON.stringify(recipe);
     await this.wasmInit;
-    let pdfBytes = gen_recipe_pdf(recipeJSON);
-    console.log(pdfBytes);
+    let buffer = gen_recipe_pdf(recipeJSON);
+    let blob = new Blob([buffer as Uint8Array<ArrayBuffer>], {type: "application/pdf"});
+    let url = URL.createObjectURL(blob);
+    window.open(url);
   }
 }
