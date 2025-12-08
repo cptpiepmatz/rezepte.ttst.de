@@ -37,7 +37,7 @@ export default class Recipe {
         // TODO: fix this some time
         .replaceAll(
           /!\[(?:!(?:\d+(?:cm|mm))? )?(?<alt>.*)\]\((?<url>.*)\)/g,
-          (match, p1, p2, offset, string, namedGroups) =>
+          (_match, _p1, _p2, _offset, _string, namedGroups) =>
             `![${namedGroups.alt}](${
               encodeURI(`.recipes/img/${this.name}/${namedGroups.url}`)
             })`,

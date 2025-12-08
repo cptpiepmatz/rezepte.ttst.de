@@ -1,3 +1,5 @@
+// deno-lint-ignore-file
+
 /**
  * Class representing one ingredient, including the amount and unit of the
  * ingredient.

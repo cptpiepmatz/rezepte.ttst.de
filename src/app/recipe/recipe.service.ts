@@ -1,6 +1,6 @@
-import { computed, effect, inject, Injectable, Signal } from "@angular/core";
+import { computed, inject, Injectable, Signal } from "@angular/core";
 import recipes from "../../../generated/recipes.json";
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
 import { toSignal } from "@angular/core/rxjs-interop";
 import gitCommit from "../../../generated/git-commit.json";
 import { httpResource } from "@angular/common/http";

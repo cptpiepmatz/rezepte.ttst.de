@@ -1,4 +1,4 @@
-import { Component, computed, inject, resource } from "@angular/core";
+import { Component, computed, inject } from "@angular/core";
 import { RecipeService } from "./recipe.service";
 import { KeyValuePipe } from "@angular/common";
 import markdownit from "markdown-it";
