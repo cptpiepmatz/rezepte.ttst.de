@@ -22,3 +22,19 @@ jobs:
 
       - name: Format Check
         run: npm run fmt-check
+
+  spell:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Install Node
+        uses: volta-cli/action@v4
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Spell Check
+        run: npm run spell
