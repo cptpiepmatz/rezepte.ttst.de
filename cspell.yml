@@ -12,7 +12,11 @@ languageSettings:
     caseSensitive: false
 
 ignorePaths: [cspell.yml, fonts]
-words: [ttst, bulma, nbsp]
+words:
+  - ttst
+  - bulma
+  - nbsp
+  - cptpiepmatz
 
 overrides:
   - filename: public/favicon/browserconfig.xml
@@ -46,3 +50,7 @@ overrides:
       - bemehlten
       - trunc
       - fract
+  - filename: Dockerfile
+    words:
+      - sigoden
+      - dufs
