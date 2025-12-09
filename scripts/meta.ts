@@ -19,6 +19,8 @@ async function generateRecipeList() {
     }
   }
 
+  recipes.sort();
+
   await Deno.mkdir("generated", { recursive: true });
   await Deno.writeTextFile(
     outputFile,
