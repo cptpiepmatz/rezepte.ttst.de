@@ -14,8 +14,8 @@ jobs:
       - name: Install Node
         uses: volta-cli/action@v4
 
-      - name: Update Rust Toolchain
-        run: rustup up
+      - name: Select Rust Version
+        run: cargo --version
 
       - name: Install deps
         run: npm ci
