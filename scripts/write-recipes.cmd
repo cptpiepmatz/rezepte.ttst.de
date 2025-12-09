@@ -1,6 +1,7 @@
 @echo off
 docker run ^
-  --pull=always ^
+  --name rezepte.ttst.de ^
+  --pull always ^
   --rm ^
   -p 5000:5000 ^
   -v %~dp0..\.recipes:/app/.recipes:ro ^
