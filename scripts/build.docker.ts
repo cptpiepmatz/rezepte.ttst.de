@@ -2,7 +2,7 @@
 //   deno run -A ./build.docker.ts .
 //   deno run -A ./build.docker.ts -t my-image:latest .
 
-import { parse as parseToml } from "jsr:@std/toml@1.0.11";
+import { parse as parseToml } from "@std/toml";
 
 type PackageJson = {
   volta?: {
