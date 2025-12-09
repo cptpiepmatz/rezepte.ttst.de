@@ -29,6 +29,7 @@ RUN cargo build --release --target=wasm32-unknown-unknown
 COPY --link fonts/ ./fonts/
 COPY --link logo/ ./logo/
 COPY --link src/pdf/ ./src/pdf/
+RUN touch src/pdf/lib.rs
 RUN cargo build --release --target=wasm32-unknown-unknown
 
 # Run wasm-pack to produce JS bindings and a pkg folder
