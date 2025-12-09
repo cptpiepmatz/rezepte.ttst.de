@@ -7,6 +7,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
+  LOCAL_IMAGE_NAME: ${{ github.event.repository.name }}
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
@@ -40,7 +41,7 @@ jobs:
 
       - name: Tag image
         run: |
-          docker tag ${{ env.IMAGE_NAME }}:latest ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          docker tag ${{ env.LOCAL_IMAGE_NAME }} ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
 
       - name: Push image
         run: |
