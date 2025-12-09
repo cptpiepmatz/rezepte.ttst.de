@@ -9,13 +9,13 @@
       </div>
       <div class="level-right">
         <button class="button" (click)="toggleSidebar()">
-          <span class="icon" style="display: inline-block">
+          <span class="icon">
             @switch (sidebarState()) {
               @case ("hidden") {
-                <ng-icon name="remixMenuFill"></ng-icon>
+                <ng-icon class="is-flex" name="remixMenuFill"></ng-icon>
               }
               @case ("visible") {
-                <ng-icon name="remixCloseLargeFill"></ng-icon>
+                <ng-icon class="is-flex" name="remixCloseLargeFill"></ng-icon>
               }
             }
           </span>
