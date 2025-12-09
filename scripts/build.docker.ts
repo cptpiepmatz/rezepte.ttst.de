@@ -1,5 +1,5 @@
 // Usage:
-//   deno run -A ./build.docker.ts . 
+//   deno run -A ./build.docker.ts .
 //   deno run -A ./build.docker.ts -t my-image:latest .
 
 import { parse as parseToml } from "jsr:@std/toml@1.0.11";
@@ -16,8 +16,8 @@ type PackageLock = {
 };
 
 type RustToolchain = {
-    toolchain?: { channel?: string };
-  };
+  toolchain?: { channel?: string };
+};
 
 async function readJsonFile<T>(path: string): Promise<T> {
   const text = await Deno.readTextFile(path);
@@ -40,7 +40,8 @@ async function main() {
   // package-lock.json
   const lockJson = await readJsonFile<PackageLock>("package-lock.json");
   const denoVersion = lockJson.packages?.["node_modules/deno"]?.version;
-  const wasmPackVersion = lockJson.packages?.["node_modules/wasm-pack"]?.version;
+  const wasmPackVersion = lockJson.packages?.["node_modules/wasm-pack"]
+    ?.version;
 
   if (!denoVersion) {
     console.error(
@@ -50,7 +51,9 @@ async function main() {
   }
 
   if (!wasmPackVersion) {
-    console.error('Error: package-lock.json is missing packages["node_modules/wasm-pack"].version');
+    console.error(
+      'Error: package-lock.json is missing packages["node_modules/wasm-pack"].version',
+    );
     Deno.exit(1);
   }
 
