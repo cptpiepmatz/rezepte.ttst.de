@@ -49,6 +49,9 @@ jobs:
       - name: Install Node
         uses: volta-cli/action@v4
 
+      - name: Select Rust Version
+        run: cargo --version
+
       - name: Install deps
         run: npm ci
 
