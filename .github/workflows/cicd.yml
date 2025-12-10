@@ -90,6 +90,7 @@ jobs:
           path: ${{ github.workspace }}/dist/rezepte.ttst.de/browser
 
   deploy:
+    if: github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
