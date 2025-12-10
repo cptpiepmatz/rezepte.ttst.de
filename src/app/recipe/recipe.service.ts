@@ -26,7 +26,7 @@ export class RecipeService {
   private recipeResource = httpResource.text(computed(() => {
     let name = this.recipeName();
     if (!name) return undefined;
-    return `.recipes/${name}.rezept.txt?${this.commit}`;
+    return `_recipes/${name}.rezept.txt?${this.commit}`;
   }));
 
   readonly recipe = computed(() => {

@@ -4,7 +4,7 @@
     "scripts"
   ],
   "material-icon-theme.folders.associations": {
-    ".recipes": "template",
+    "_recipes": "template",
     "logo": "images"
   }
 }

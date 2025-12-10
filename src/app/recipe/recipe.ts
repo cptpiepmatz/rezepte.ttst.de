@@ -26,10 +26,10 @@ export default class Recipe {
   constructor(options: RecipeOptions) {
     Object.assign(this, options);
     if (options.resultImage) {
-      this.resultImage = `/.recipes/img/${options.name}/${options.resultImage}`;
+      this.resultImage = `/_recipes/img/${options.name}/${options.resultImage}`;
     }
     if (options.pdf) {
-      this.pdf = `/.recipes/pdf/${options.pdf}`;
+      this.pdf = `/_recipes/pdf/${options.pdf}`;
     }
     if (options.preparation) {
       this.preparation = options.preparation
@@ -39,7 +39,7 @@ export default class Recipe {
           /!\[(?:!(?:\d+(?:cm|mm))? )?(?<alt>.*)\]\((?<url>.*)\)/g,
           (_match, _p1, _p2, _offset, _string, namedGroups) =>
             `![${namedGroups.alt}](${
-              encodeURI(`.recipes/img/${this.name}/${namedGroups.url}`)
+              encodeURI(`_recipes/img/${this.name}/${namedGroups.url}`)
             })`,
         );
     }

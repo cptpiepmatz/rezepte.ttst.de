@@ -4,5 +4,5 @@ docker run ^
   --pull always ^
   --rm ^
   -p 5000:5000 ^
-  -v %~dp0..\.recipes:/app/.recipes:ro ^
+  -v %~dp0..\_recipes:/app/_recipes:ro ^
   ghcr.io/cptpiepmatz/rezepte.ttst.de:latest

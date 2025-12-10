@@ -65,8 +65,8 @@
               },
               {
                 "glob": "**/*",
-                "input": ".recipes",
-                "output": ".recipes"
+                "input": "_recipes",
+                "output": "_recipes"
               },
               {
                 "glob": "*.wasm",

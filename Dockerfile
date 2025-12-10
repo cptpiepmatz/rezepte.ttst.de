@@ -45,7 +45,7 @@ RUN apt-get update \
 
 COPY --link deno.jsonc deno.lock ./
 COPY --link scripts/meta.ts ./scripts/meta.ts
-COPY --link .recipes/ ./.recipes/
+COPY --link _recipes/ ./_recipes/
 COPY --link .git/ ./.git/
 # Generates the "generated" directory
 RUN deno run -A scripts/meta.ts
@@ -64,7 +64,7 @@ COPY --link angular.json tsconfig.json ./
 COPY --link logo/ ./logo/
 COPY --link public/ ./public/
 COPY --link src/app/ ./src/app/
-COPY --link .recipes/ ./.recipes/
+COPY --link _recipes/ ./_recipes/
 
 # Build the Angular app
 RUN npm run build --ignore-scripts
