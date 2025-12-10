@@ -9,6 +9,11 @@ main {
     "preparation card" auto / 2fr 1fr;
 }
 
+.title-container {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
 @media (max-width: iv.$tablet) {
   main {
     grid-template:
@@ -20,6 +25,11 @@ main {
 
   .hr {
     display: none;
+  }
+
+  .title-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
