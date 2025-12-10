@@ -26,10 +26,10 @@ export default class Recipe {
   constructor(options: RecipeOptions) {
     Object.assign(this, options);
     if (options.resultImage) {
-      this.resultImage = `/_recipes/img/${options.name}/${options.resultImage}`;
+      this.resultImage = `_recipes/img/${options.name}/${options.resultImage}`;
     }
     if (options.pdf) {
-      this.pdf = `/_recipes/pdf/${options.pdf}`;
+      this.pdf = `_recipes/pdf/${options.pdf}`;
     }
     if (options.preparation) {
       this.preparation = options.preparation
