@@ -18,7 +18,7 @@ jobs:
         run: cargo --version
 
       - name: Install deps
-        run: npm ci
+        run: npm ci --include optional
 
       - name: Format Check
         run: npm run fmt-check
@@ -34,7 +34,7 @@ jobs:
         uses: volta-cli/action@v4
 
       - name: Install deps
-        run: npm ci
+        run: npm ci --include optional
 
       - name: Spell Check
         run: npm run spell
@@ -56,7 +56,7 @@ jobs:
         run: rustup target add wasm32-unknown-unknown
 
       - name: Install deps
-        run: npm ci
+        run: npm ci --include optional
 
       - name: Lint Check
         run: npm run lint
