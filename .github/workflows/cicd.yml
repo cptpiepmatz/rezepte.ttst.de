@@ -81,7 +81,7 @@ jobs:
         run: sudo apt install -y binaryen
 
       - name: Install deps
-        run: npm ci
+        run: npm ci --include optional
 
       - name: Build
         run: npm run build
