@@ -81,7 +81,9 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build -- --base-href /rezepte.ttst.de/ --deploy-url /rezepte.ttst.de/
+        run: npm run build
+        # use this, when deploying to github pages without custom domain
+        # run: npm run build -- --base-href /rezepte.ttst.de/ --deploy-url /rezepte.ttst.de/
 
       - name: Upload Github Pages Artifact
         if: github.ref == 'refs/heads/main'
