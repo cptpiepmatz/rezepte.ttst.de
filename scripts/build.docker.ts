@@ -19,6 +19,13 @@ type RustToolchain = {
   toolchain?: { channel?: string };
 };
 
+type CargoLock = {
+  package?: {
+    name?: string;
+    version?: string;
+  }[];
+};
+
 async function readJsonFile<T>(path: string): Promise<T> {
   const text = await Deno.readTextFile(path);
   return JSON.parse(text) as T;
@@ -69,6 +76,19 @@ async function main() {
     Deno.exit(1);
   }
 
+  const cargoLockText = await Deno.readTextFile("Cargo.lock");
+  const cargoLock = parseToml(cargoLockText) as CargoLock;
+  const wasmBindgenVersion = cargoLock.package?.find(({ name }) =>
+    name == "wasm-bindgen"
+  )?.version;
+
+  if (!wasmBindgenVersion) {
+    console.error(
+      "Error: Cargo.lock is missing package[$name == wasm-bindgen].version",
+    );
+    Deno.exit(1);
+  }
+
   // Build args for Docker
   // deno-fmt-ignore
   const buildArgs = [
@@ -76,6 +96,7 @@ async function main() {
     "--build-arg", `NPM_VERSION=${npmVersion}`,
     "--build-arg", `DENO_VERSION=${denoVersion}`,
     "--build-arg", `WASM_PACK_VERSION=${wasmPackVersion}`,
+    "--build-arg", `WASM_BINDGEN_VERSION=${wasmBindgenVersion}`,
     "--build-arg", `RUST_TOOLCHAIN_CHANNEL=${rustChannel}`,
   ];
 

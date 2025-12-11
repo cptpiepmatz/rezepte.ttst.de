@@ -2,6 +2,7 @@ ARG NODE_VERSION
 ARG NPM_VERSION
 ARG DENO_VERSION
 ARG WASM_PACK_VERSION
+ARG WASM_BINDGEN_VERSION
 ARG RUST_TOOLCHAIN_CHANNEL
 
 
@@ -13,6 +14,10 @@ RUN cargo install wasm-pack --version ${WASM_PACK_VERSION} --root /
 
 # Build the Rust WASM code
 FROM rust:${RUST_TOOLCHAIN_CHANNEL}-bookworm AS wasm
+
+# Build wasm-bindgen binary for later use
+ARG WASM_BINDGEN_VERSION
+RUN cargo install wasm-bindgen-cli --version ${WASM_BINDGEN_VERSION}
 
 # Bring in cargo config and toolchain overrides early for caching
 COPY --link .cargo/ ./.cargo/
@@ -33,8 +38,11 @@ RUN touch src/pdf/lib.rs
 RUN cargo build --release --target=wasm32-unknown-unknown
 
 # Run wasm-pack to produce JS bindings and a pkg folder
-COPY --from=wasm-pack /bin/wasm-pack ./bin/wasm-pack
-RUN wasm-pack build --target=web --release --scope=rezepte.ttst.de --out-name=pdf --out-dir=/pkg
+COPY --from=wasm-pack /bin/wasm-pack /usr/local/cargo/bin/wasm-pack
+# COPY --from=wasm-pack /bin/wasm-bindgen /usr/local/cargo/bin/wasm-bindgen
+RUN wasm-pack --version
+RUN wasm-bindgen --version
+RUN wasm-pack build --mode=no-install --target=web --release --scope=rezepte.ttst.de --out-name=pdf --out-dir=/pkg
 
 
 # Generate metadata using Deno
