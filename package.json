@@ -4,7 +4,7 @@
   "scripts": {
     "prestart": "npm run prebuild",
     "start": "ng serve",
-    "wasm": "wasm-pack build --target=web --release --scope=rezepte.ttst.de --out-name=pdf",
+    "wasm": "npx wasm-pack build --target=web --release --scope=rezepte.ttst.de --out-name=pdf",
     "meta": "deno run --no-npm --allow-read --allow-write --allow-run=git scripts/meta.ts",
     "prebuild": "npm run wasm && npm run meta",
     "build": "ng build",
