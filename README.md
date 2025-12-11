@@ -27,12 +27,11 @@
 
 ## Lokal starten
 
-Um die Seite lokal zu bauen, sollte man [Volta](https://volta.sh) nutzen.  
-So ist sichergestellt, dass die korrekte Node Version installiert wird.  
-Außerdem braucht man [rustup](https://rustup.rs), damit die passende Rust 
-Version installiert wird. 
-Ich kann nicht garantieren, dass andere Versionen funktionieren, die nicht 
-angepinnt sind.
+Um die Seite lokal zu bauen, sollte man [Volta](https://volta.sh) nutzen.\
+So ist sichergestellt, dass die korrekte Node Version installiert wird.\
+Außerdem braucht man [rustup](https://rustup.rs), damit die passende Rust
+Version installiert wird. Ich kann nicht garantieren, dass andere Versionen
+funktionieren, die nicht angepinnt sind.
 
 Wenn alles eingerichtet ist:
 
@@ -51,19 +50,17 @@ Wer Docker installiert hat, kann die Seite auch ohne lokalen Build starten:
 scripts/write-recipe.bat
 ```
 
-Das Script fährt die Seite direkt hoch.
-Rezepte tauchen in der Sidebar dann nicht auf, man muss sie also per Query 
-Parameter angeben.
+Das Script fährt die Seite direkt hoch. Rezepte tauchen in der Sidebar dann
+nicht auf, man muss sie also per Query Parameter angeben.
 
 ## Rezepte schreiben
 
-Alle Rezepte liegen im Ordner `_recipes`.
-Dort gibt es eine [README](./_recipes/README.md), die erklärt, wie ein Rezept 
-aufgebaut ist.
-Für Details einfach dorthin wechseln.
+Alle Rezepte liegen im Ordner `_recipes`. Dort gibt es eine
+[README](./_recipes/README.md), die erklärt, wie ein Rezept aufgebaut ist. Für
+Details einfach dorthin wechseln.
 
 ## Lizenz
 
-Dieses Projekt nutzt die PolyForm Strict Lizenz.
-Der Code ist einsehbar, aber nicht für kommerzielle Nutzung gedacht.
-Wer das Projekt weiterverwenden will, sollte die Lizenz einmal komplett lesen.
+Dieses Projekt nutzt die PolyForm Strict Lizenz. Der Code ist einsehbar, aber
+nicht für kommerzielle Nutzung gedacht. Wer das Projekt weiterverwenden will,
+sollte die Lizenz einmal komplett lesen.
