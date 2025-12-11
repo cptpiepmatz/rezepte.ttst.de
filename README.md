@@ -24,3 +24,46 @@
 [![Rust](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fcptpiepmatz%2Frezepte.ttst.de%2Frefs%2Fheads%2Fmain%2Frust-toolchain.toml&query=toolchain.channel&prefix=v&style=for-the-badge&logo=rust&label=rust&color=D34516)](https://rust-lang.org)
 
 </div>
+
+## Lokal starten
+
+Um die Seite lokal zu bauen, sollte man [Volta](https://volta.sh) nutzen.  
+So ist sichergestellt, dass die korrekte Node Version installiert wird.  
+Außerdem braucht man [rustup](https://rustup.rs), damit die passende Rust 
+Version installiert wird. 
+Ich kann nicht garantieren, dass andere Versionen funktionieren, die nicht 
+angepinnt sind.
+
+Wenn alles eingerichtet ist:
+
+```bash
+npm install
+npm start
+```
+
+Das startet die Seite im Entwicklungsmodus.
+
+## Docker Variante
+
+Wer Docker installiert hat, kann die Seite auch ohne lokalen Build starten:
+
+```
+scripts/write-recipe.bat
+```
+
+Das Script fährt die Seite direkt hoch.
+Rezepte tauchen in der Sidebar dann nicht auf, man muss sie also per Query 
+Parameter angeben.
+
+## Rezepte schreiben
+
+Alle Rezepte liegen im Ordner `_recipes`.
+Dort gibt es eine [README](./_recipes/README.md), die erklärt, wie ein Rezept 
+aufgebaut ist.
+Für Details einfach dorthin wechseln.
+
+## Lizenz
+
+Dieses Projekt nutzt die PolyForm Strict Lizenz.
+Der Code ist einsehbar, aber nicht für kommerzielle Nutzung gedacht.
+Wer das Projekt weiterverwenden will, sollte die Lizenz einmal komplett lesen.
