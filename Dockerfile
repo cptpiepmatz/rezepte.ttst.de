@@ -9,7 +9,7 @@ ARG RUST_TOOLCHAIN_CHANNEL
 # Build a wasm-pack binary once so we can reuse it later
 FROM rust:1.91-bookworm AS wasm-pack
 ARG WASM_PACK_VERSION
-RUN cargo install wasm-pack --version ${WASM_PACK_VERSION} --root /
+RUN cargo install wasm-pack --version ${WASM_PACK_VERSION} --locked --root /
 
 
 # Build the Rust WASM code
@@ -17,7 +17,7 @@ FROM rust:${RUST_TOOLCHAIN_CHANNEL}-bookworm AS wasm
 
 # Build wasm-bindgen binary for later use
 ARG WASM_BINDGEN_VERSION
-RUN cargo install wasm-bindgen-cli --version ${WASM_BINDGEN_VERSION}
+RUN cargo install wasm-bindgen-cli --version ${WASM_BINDGEN_VERSION} --locked
 
 # Bring in cargo config and toolchain overrides early for caching
 COPY --link .cargo/ ./.cargo/
