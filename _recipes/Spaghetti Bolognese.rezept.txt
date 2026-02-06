@@ -3,7 +3,7 @@ Bolognese (3).jpg
 
 [Zutaten]
 500;g;Hackfleisch
-600;g;Karotten
+300;g;Karotten
 2-3;;Zwiebeln
 1-2;Zehen;Knoblauch
 1;Paket;passierte Tomaten
