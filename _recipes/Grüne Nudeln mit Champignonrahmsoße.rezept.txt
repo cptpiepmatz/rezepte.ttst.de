@@ -11,7 +11,6 @@ GrüneNudeln (5).jpg
 ;;Öl
 ;;Salz
 ;;Pfeffer
-;;Paprika (Gewürz)
 ;;Basilikum, gerebelt
 
 [Zubereitung]
