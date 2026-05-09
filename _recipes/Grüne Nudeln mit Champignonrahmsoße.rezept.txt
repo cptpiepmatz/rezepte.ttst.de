@@ -2,8 +2,8 @@
 GrüneNudeln (5).jpg
 
 [Zutaten]
-500;g;grüne Nudeln
-1;kg;Champignons
+300;g;grüne Nudeln
+700;g;Champignons
 2;Becher;Schlagsahne
 100;ml;trockener Weißwein
 1;;Zwiebel
